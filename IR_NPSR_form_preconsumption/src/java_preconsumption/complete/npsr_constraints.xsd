@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+<!-- ********************************** -->
+<!-- npsr_constraints.xsd XML Schema	-->
+<!-- July 24, 2007			-->
+<!-- Chris Senack			-->
+<!-- ********************************** -->
+
+<!-- ************************* -->
+<!-- npsr ELEMENT DECLARATIONS -->
+<!-- ************************* -->
+
+<xsd:element name="npsr" type="npsr_Content"/>
+<xsd:element name="npsr_id" type="number_Content_0_14"/>
+
+
+
+
+<!-- ******************PDF FORM QUESTION 1 (A, B)************************* -->
+<!-- 1A -->
+<xsd:element name="npsr_type" type="npsr_type_Content" />
+<xsd:element name="subn" type="char_0_10_Content"/>
+<!-- 1B -->
+<xsd:element name="npsr_amend_info" type="npsr_amend_info_Content"/>
+<!-- ******************END QUESTION 1 (A, B)****************************** -->
+
+
+<xsd:element name="regt_madco" type="regt_madco_Content"/>
+<xsd:element name="regt_seq" type="regt_seq_Content"/>
+
+
+<!-- ******************PDF FORM QUESTION 2******************************** -->
+<xsd:element name="regt_legal_name" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 2************************************* -->
+
+
+<!-- ******************PDF FORM QUESTION 3******************************** -->
+<xsd:element name="regt_adr1" type="char_1_2000_Content" />
+<xsd:element name="regt_adr2" type="char_0_2000_Content"/>
+<xsd:element name="regt_adr3" type="char_0_2000_Content"/>
+<xsd:element name="regt_city" type="char_1_2000_Content" />	
+<xsd:element name="regt_prov" type="char_0_2000_Content"/>	
+<xsd:element name="reft_cnty" type="char_1_2000_Content" />	
+<xsd:element name="regt_postcde" type="char_1_2000_Content" />	
+<!-- ******************END QUESTION 3************************************* -->
+
+
+<!-- ******************PDF FORM QUESTION 4******************************** -->
+<xsd:element name="rpter_name" type="char_1_256_Content" />	
+<xsd:element name="rpter_title" type="char_1_256_Content" />
+<!-- ******************END QUESTION 4************************************* -->
+
+
+<!-- ******************PDF FORM QUESTION 5******************************** -->
+<xsd:element name="rpter_tel" type="char_1_2000_Content" />	
+<xsd:element name="rpter_fax" type="char_0_2000_Content"/>	
+<xsd:element name="rpter_email" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 5************************************* -->
+
+
+<!-- ******************PDF FORM QUESTION 6******************************** -->
+<xsd:element name="rpter_identical_adr_mandatory" type="YES_NO_Content" />
+<!-- ******************END QUESTION 6************************************* -->
+
+
+<!-- ******************PDF FORM QUESTION 7******************************** -->
+<xsd:element name="rpter_adr1" type="char_1_2000_Content" />	
+<xsd:element name="rpter_adr2" type="char_0_2000_Content"/>	
+<xsd:element name="rpter_adr3" type="char_0_2000_Content"/>	
+<xsd:element name="rpter_city" type="char_1_2000_Content" />	
+<xsd:element name="rpter_prov" type="char_0_2000_Content" />	
+<xsd:element name="rpter_cnty" type="char_1_2000_Content" />	
+<xsd:element name="rpter_postcde" type="char_1_2000_Content" />	
+<!-- ******************END QUESTION 7************************************* -->
+
+
+<!-- ******************PDF FORM QUESTION 8******************************** -->
+<xsd:element name="npsr_year" type="year_Content" />	
+<!-- ******************END QUESTION 8************************************* -->
+
+
+<!-- ******************PDF FORM QUESTION 9******************************** -->
+<xsd:element name="npsr_date_created" type="yyyymmdd_date_Content" />
+<!-- ******************END QUESTION 9************************************* -->
+
+
+<!-- ******************PDF FORM QUESTION 10******************************* -->
+<!-- ** NEW QUESTION ** -->
+<xsd:element name="npsr_product_nosales" type="npsr_product_nosales_Content"/>
+<!-- ******************END QUESTION 10************************************ -->
+
+
+<!-- ******************NPSR MD (MISC)************************************* -->
+<xsd:element name="npsr_md01" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md02" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md03" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md04" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md05" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md06" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md07" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md08" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md09" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md10" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md11" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md12" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md13" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md14" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md15" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md16" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md17" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md18" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md19" type="char_0_2000_Content"/>	
+<xsd:element name="npsr_md20" type="number_Content_0_14"/>	
+<xsd:element name="npsr_md21" type="number_Content_0_14"/>	
+<xsd:element name="npsr_md22" type="number_Content_0_14"/>	
+<xsd:element name="npsr_md23" type="number_Content_0_14"/>	
+<xsd:element name="npsr_md24" type="number_Content_0_14"/>	
+<xsd:element name="npsr_md25" type="number_Content_0_14"/>	
+<xsd:element name="npsr_md26" type="yyyymmdd_date_Content" />	
+<xsd:element name="npsr_md27" type="yyyymmdd_date_Content" />	
+<xsd:element name="npsr_md28" type="yyyymmdd_date_Content" />	
+<xsd:element name="npsr_md29" type="yyyymmdd_date_Content" />	
+<xsd:element name="npsr_md30" type="yyyymmdd_date_Content" />
+<!-- ******************END NPSR MD (MISC)********************************* -->
+
+<xsd:element name="npsr_general" type="npsr_general"/>
+
+<!-- ************************************** -->
+<!-- npsr/npsr_product ELEMENT DECLARATIONS -->
+<!-- ************************************** -->
+
+<xsd:element name="npsr_product" type="npsr_product_Content" />
+<xsd:element name="npsr_product_id" type="number_Content_0_14" />
+
+
+<!-- ******************PDF FORM QUESTION 11******************************* -->
+<xsd:element name="registration_no" type="number_Content_1_14" />
+<!-- ******************END QUESTION 11************************************ -->
+
+
+<xsd:element name="regn" type="number_Content_0_14"/>
+<xsd:element name="plrn" type="number_Content_0_14"/>
+<xsd:element name="registration_no_ind" type="YES_NO_Content" />
+
+
+<!-- ******************PDF FORM QUESTION 12******************************* -->
+<xsd:element name="prnm" type="char_1_70_Content" />
+<!-- ******************END QUESTION 12************************************ -->
+
+
+<!-- ******************PDF FORM QUESTION 13******************************* -->
+<xsd:element name="classification" type="classification_Content" />
+<!-- ******************END QUESTION 13************************************ -->
+
+
+<!-- ******************PDF FORM QUESTION 14******************************* -->
+<xsd:element name="units" type="units_Content" />
+<xsd:element name="units_other" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 14************************************ -->
+
+
+<!-- ******************PDF FORM QUESTION 15******************************* -->
+<xsd:element name="owner_change_ind" type="YES_NO_Content" />
+<xsd:element name="owner_period_start" type="owner_period_start_end_Content"/>
+<xsd:element name="owner_period_end" type="owner_period_start_end_Content"/>
+<!-- ******************END QUESTION 15************************************ -->
+
+
+<!-- ******************PDF FORM QUESTION 16******************************* -->
+<xsd:element name="interim_date_end" type="owner_period_start_end_Content"/>
+<!-- ******************END QUESTION 16************************************ -->
+
+
+<!-- ******************END QUESTION 17 (A, B)***************************** -->
+<!-- 17A -->
+<xsd:element name="qty_tmc_fafa_ca" type="number_Content_0_14" />
+<!-- 17B ** NEW QUESTION ** -->   
+<xsd:element name="qty_tmc_fafa_ca_desc" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 17 (A, B)***************************** -->
+
+
+<!-- ******************PDF FORM QUESTION 18 (A, B, C)********************* -->
+<!-- 18A -->
+<xsd:element name="qty_tmc_fafa_ab" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_bc" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_mb" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_nb" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_nl" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_ns" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_nt" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_nu" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_on" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_pe" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_qc" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_sk" type="number_Content_0_14" />
+<xsd:element name="qty_tmc_fafa_yt" type="number_Content_0_14" />
+<!-- 18B -->
+<xsd:element name="qty_tmc_fafa_ab_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_bc_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_mb_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_nb_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_nl_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_ns_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_nt_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_nu_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_on_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_pe_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_qc_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_sk_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_tmc_fafa_yt_est_ind" type="YES_NO_Content"/>
+<!-- 18C -->
+<xsd:element name="tmc_fafa_est_mthd" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 18 (A, B, C)************************** -->
+
+
+<!-- ******************PDF FORM QUESTION 19 (A, B)************************ -->
+<!-- 19A -->
+<xsd:element name="qty_tmc_other_ab" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_bc" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_mb" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_nb" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_nl" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_ns" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_nt" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_nu" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_on" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_pe" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_qc" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_sk" type="number_Content_0_14"/>
+<xsd:element name="qty_tmc_other_yt" type="number_Content_0_14"/>
+<!-- 19B** NEW QUESTION ** -->  
+<xsd:element name="qty_tmc_other_desc" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 19 (A, B)***************************** -->
+
+
+<!-- ******************PDF FORM QUESTION 20 (A, B)************************ -->
+<!-- 20A -->
+<xsd:element name="qty_ep_fafa_ts_ca" type="number_Content_0_14"/>
+<!-- 20B** NEW QUESTION ** -->  
+<xsd:element name="qty_ep_fafa_ts_ca_desc" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 20 (A, B)***************************** -->
+
+
+<!-- ******************PDF FORM QUESTION 21 (A, B, C)********************* -->
+<!-- 21A -->
+<xsd:element name="qty_ep_fafa_ts_ab" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_bc" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_mb" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_nb" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_nl" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_ns" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_nt" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_nu" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_on" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_pe" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_qc" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_sk" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_fafa_ts_yt" type="number_Content_0_14"/>
+<!-- 21B -->
+<xsd:element name="qty_ep_fafa_ts_ab_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_bc_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_mb_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_nb_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_nl_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_ns_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_nt_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_nu_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_on_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_pe_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_qc_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_sk_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_fafa_ts_yt_est_ind" type="YES_NO_Content"/>
+<!-- 21C -->
+<xsd:element name="ep_fafa_ts_est_mthd" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 21 (A, B, C)************************** -->
+
+
+<!-- ******************PDF FORM QUESTION 22******************************* -->
+<xsd:element name="qty_ep_rnd_ab" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_bc" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_mb" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_nb" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_nl" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_ns" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_nt" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_nu" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_on" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_pe" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_qc" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_sk" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_yt" type="number_Content_0_14"/>
+<!-- ******************END QUESTION 22************************************ -->
+
+
+<!-- ******************PDF FORM QUESTION 23 (A, B, C, D)****************** -->
+<!-- 23B -->
+<xsd:element name="qty_ep_rnd_users_ab" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_bc" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_mb" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_nb" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_nl" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_ns" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_nt" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_nu" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_on" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_pe" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_qc" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_sk" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_rnd_users_yt" type="number_Content_0_14"/>
+<!-- 23C -->
+<xsd:element name="qty_ep_rnd_users_ab_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_bc_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_mb_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_nb_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_nl_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_ns_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_nt_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_nu_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_on_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_pe_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_qc_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_sk_est_ind" type="YES_NO_Content"/>
+<xsd:element name="qty_ep_rnd_users_yt_est_ind" type="YES_NO_Content"/>
+<!-- 23D -->
+<xsd:element name="ep_rnd_users_est_mthd" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 23 *********************************** -->
+
+
+<!-- ******************PDF FORM QUESTION 24******************************* -->
+<xsd:element name="qty_ep_regt_uvd_ab" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_bc" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_mb" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_nb" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_nl" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_ns" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_nt" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_nu" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_on" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_pe" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_qc" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_sk" type="number_Content_0_14"/>
+<xsd:element name="qty_ep_regt_uvd_yt" type="number_Content_0_14"/>
+<!-- ******************END QUESTION 24************************************ -->
+
+
+<!-- ******************PDF FORM QUESTION 25******************************* -->
+<xsd:element name="npsr_addl_info" type="char_0_2000_Content"/>
+<!-- ******************END QUESTION 25************************************ -->
+
+
+<xsd:element name="npsr_signature_date" type="yyyymmdd_date_Content" />
+<xsd:element name="npsr_signature_text" type="char_1_2000_Content" />
+<xsd:element name="npsr_e_signature_ind" type="YES_NO_Content" default="N" />
+
+<xsd:element name="PDF_RESERVED_PG_NO" type="xsd:string"/>
+<xsd:element name="PDF_RESERVED_PG_INDEX" type="xsd:string"/>
+<xsd:element name="NPSR_VERSION" type="xsd:string"/>
+
+<xsd:element name="nosales_reg_no" type="number_Content_1_14" />
+<xsd:element name="npsr_nosales_id" type="number_Content_0_14"/>
+
+
+<!-- ******************PRODUCT MD (MISC)********************************** -->
+<xsd:element name="npsr_product_md01" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md02" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md03" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md04" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md05" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md06" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md07" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md08" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md09" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md10" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md11" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md12" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md13" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md14" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md15" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md16" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md17" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md18" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md19" type="char_0_2000_Content"/>
+<xsd:element name="npsr_product_md20" type="number_Content_0_14"/>
+<xsd:element name="npsr_product_md21" type="number_Content_0_14"/>
+<xsd:element name="npsr_product_md22" type="number_Content_0_14"/>
+<xsd:element name="npsr_product_md23" type="number_Content_0_14"/>
+<xsd:element name="npsr_product_md24" type="number_Content_0_14"/>
+<xsd:element name="npsr_product_md25" type="number_Content_0_14"/>
+<xsd:element name="npsr_product_md26" type="yyyymmdd_date_Content" />
+<xsd:element name="npsr_product_md27" type="yyyymmdd_date_Content" />
+<xsd:element name="npsr_product_md28" type="yyyymmdd_date_Content" />
+<xsd:element name="npsr_product_md29" type="yyyymmdd_date_Content" />
+<xsd:element name="npsr_product_md30" type="yyyymmdd_date_Content" />
+<!-- ******************END PRODUCT MD (MISC)****************************** -->
+
+
+<!-- ****************************** -->
+<!-- npsr ELEMENT TYPE DECLARATIONS -->
+<!-- ****************************** -->
+<xsd:complexType name="npsr_Content">
+	<xsd:sequence>
+	
+		<xsd:element ref="npsr_general"/>
+		<xsd:element ref="npsr_product_nosales" minOccurs="0" maxOccurs="unbounded"/>
+		<xsd:element ref="npsr_product" minOccurs="0" maxOccurs="25"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="npsr_general">
+		<xsd:sequence>
+		<xsd:element ref="npsr_id"/>
+		<xsd:element ref="npsr_type"/>
+		<xsd:element ref="subn"/>
+		<xsd:element ref="npsr_amend_info"/>
+		<xsd:element ref="regt_madco"/>
+		<xsd:element ref="regt_seq"/>
+		<xsd:element ref="regt_legal_name"/>
+		<xsd:element ref="regt_adr1"/>
+		<xsd:element ref="regt_adr2"/>
+		<xsd:element ref="regt_adr3"/>
+		<xsd:element ref="regt_city"/>
+		<xsd:element ref="regt_prov"/>
+		<xsd:element ref="reft_cnty"/>
+		<xsd:element ref="regt_postcde"/>
+		<xsd:element ref="rpter_name"/>
+		<xsd:element ref="rpter_title"/>
+		<xsd:element ref="rpter_tel"/>
+		<xsd:element ref="rpter_fax"/>
+		<xsd:element ref="rpter_email"/>
+		<xsd:element ref="rpter_identical_adr_mandatory"/>
+		<xsd:element ref="rpter_adr1"/>
+		<xsd:element ref="rpter_adr2"/>
+		<xsd:element ref="rpter_adr3"/>
+		<xsd:element ref="rpter_city"/>
+		<xsd:element ref="rpter_prov"/>
+		<xsd:element ref="rpter_cnty"/>
+		<xsd:element ref="rpter_postcde"/>
+		<xsd:element ref="npsr_year"/>
+		<xsd:element ref="npsr_date_created"/>
+		<xsd:element ref="npsr_md01"/>
+		<xsd:element ref="npsr_md02"/>
+		<xsd:element ref="npsr_md03"/>
+		<xsd:element ref="npsr_md04"/>
+		<xsd:element ref="npsr_md05"/>
+		<xsd:element ref="npsr_md06"/>
+		<xsd:element ref="npsr_md07"/>
+		<xsd:element ref="npsr_md08"/>
+		<xsd:element ref="npsr_md09"/>
+		<xsd:element ref="npsr_md10"/>
+		<xsd:element ref="npsr_md11"/>
+		<xsd:element ref="npsr_md12"/>
+		<xsd:element ref="npsr_md13"/>
+		<xsd:element ref="npsr_md14"/>
+		<xsd:element ref="npsr_md15"/>
+		<xsd:element ref="npsr_md16"/>
+		<xsd:element ref="npsr_md17"/>
+		<xsd:element ref="npsr_md18"/>
+		<xsd:element ref="npsr_md19"/>
+		<xsd:element ref="npsr_md20"/>
+		<xsd:element ref="npsr_md21"/>
+		<xsd:element ref="npsr_md22"/>
+		<xsd:element ref="npsr_md23"/>
+		<xsd:element ref="npsr_md24"/>
+		<xsd:element ref="npsr_md25"/>
+		<xsd:element ref="npsr_md26"/>
+		<xsd:element ref="npsr_md27"/>
+		<xsd:element ref="npsr_md28"/>
+		<xsd:element ref="npsr_md29"/>
+		<xsd:element ref="npsr_md30"/>
+		<xsd:element ref="npsr_signature_date"/>
+		<xsd:element ref="npsr_signature_text"/>
+		<xsd:element ref="npsr_e_signature_ind"/>
+		<xsd:element ref="PDF_RESERVED_PG_NO"/>
+		<xsd:element ref="PDF_RESERVED_PG_INDEX"/>
+		<xsd:element ref="NPSR_VERSION"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+
+
+
+
+<!-- *************************************************** -->
+<!-- npsr/npsr_product_nosales ELEMENT TYPE DECLARATIONS -->
+<!-- *************************************************** -->
+<xsd:complexType name="npsr_product_nosales_Content">
+	<xsd:sequence>		
+		<xsd:element ref="npsr_nosales_id"/>
+		<xsd:element ref="npsr_product_id"/>
+		<xsd:element ref="npsr_id"/>
+		<xsd:element ref="nosales_reg_no"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<!-- ******************************************* -->
+<!-- npsr/npsr_product ELEMENT TYPE DECLARATIONS -->
+<!-- ******************************************* -->
+<xsd:complexType name="npsr_product_Content">
+	<xsd:sequence>
+		<xsd:element ref="npsr_product_id"/>
+		<xsd:element ref="npsr_id"/>
+		<xsd:element ref="registration_no"/>
+		<xsd:element ref="regn"/>
+		<xsd:element ref="plrn"/>
+		<xsd:element ref="registration_no_ind"/>
+		<xsd:element ref="prnm"/>
+		<xsd:element ref="classification"/>
+		<xsd:element ref="units"/>
+		<xsd:element ref="units_other"/>
+		<xsd:element ref="owner_change_ind"/>
+		<xsd:element ref="owner_period_start"/>
+		<xsd:element ref="owner_period_end"/>
+		<xsd:element ref="interim_date_end"/>
+		<xsd:element ref="qty_tmc_fafa_ca"/>
+		<xsd:element ref="qty_tmc_fafa_ca_desc"/>
+		<xsd:element ref="qty_tmc_fafa_ab"/>
+		<xsd:element ref="qty_tmc_fafa_bc"/>
+		<xsd:element ref="qty_tmc_fafa_mb"/>
+		<xsd:element ref="qty_tmc_fafa_nb"/>
+		<xsd:element ref="qty_tmc_fafa_nl"/>
+		<xsd:element ref="qty_tmc_fafa_ns"/>
+		<xsd:element ref="qty_tmc_fafa_nt"/>
+		<xsd:element ref="qty_tmc_fafa_nu"/>
+		<xsd:element ref="qty_tmc_fafa_on"/>
+		<xsd:element ref="qty_tmc_fafa_pe"/>
+		<xsd:element ref="qty_tmc_fafa_qc"/>
+		<xsd:element ref="qty_tmc_fafa_sk"/>
+		<xsd:element ref="qty_tmc_fafa_yt"/>
+		<xsd:element ref="qty_tmc_fafa_ab_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_bc_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_mb_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_nb_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_nl_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_ns_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_nt_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_nu_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_on_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_pe_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_qc_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_sk_est_ind"/>
+		<xsd:element ref="qty_tmc_fafa_yt_est_ind"/>
+		<xsd:element ref="tmc_fafa_est_mthd"/>
+		<xsd:element ref="qty_tmc_other_ab"/>
+		<xsd:element ref="qty_tmc_other_bc"/>
+		<xsd:element ref="qty_tmc_other_mb"/>
+		<xsd:element ref="qty_tmc_other_nb"/>
+		<xsd:element ref="qty_tmc_other_nl"/>
+		<xsd:element ref="qty_tmc_other_ns"/>
+		<xsd:element ref="qty_tmc_other_nt"/>
+		<xsd:element ref="qty_tmc_other_nu"/>
+		<xsd:element ref="qty_tmc_other_on"/>
+		<xsd:element ref="qty_tmc_other_pe"/>
+		<xsd:element ref="qty_tmc_other_qc"/>
+		<xsd:element ref="qty_tmc_other_sk"/>
+		<xsd:element ref="qty_tmc_other_yt"/>
+		<xsd:element ref="qty_tmc_other_desc"/>
+		<xsd:element ref="qty_ep_fafa_ts_ca"/>
+		<xsd:element ref="qty_ep_fafa_ts_ca_desc"/>
+		<xsd:element ref="qty_ep_fafa_ts_ab"/>
+		<xsd:element ref="qty_ep_fafa_ts_bc"/>
+		<xsd:element ref="qty_ep_fafa_ts_mb"/>
+		<xsd:element ref="qty_ep_fafa_ts_nb"/>
+		<xsd:element ref="qty_ep_fafa_ts_nl"/>
+		<xsd:element ref="qty_ep_fafa_ts_ns"/>
+		<xsd:element ref="qty_ep_fafa_ts_nt"/>
+		<xsd:element ref="qty_ep_fafa_ts_nu"/>
+		<xsd:element ref="qty_ep_fafa_ts_on"/>
+		<xsd:element ref="qty_ep_fafa_ts_pe"/>
+		<xsd:element ref="qty_ep_fafa_ts_qc"/>
+		<xsd:element ref="qty_ep_fafa_ts_sk"/>
+		<xsd:element ref="qty_ep_fafa_ts_yt"/>
+		<xsd:element ref="qty_ep_fafa_ts_ab_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_bc_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_mb_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_nb_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_nl_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_ns_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_nt_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_nu_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_on_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_pe_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_qc_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_sk_est_ind"/>
+		<xsd:element ref="qty_ep_fafa_ts_yt_est_ind"/>
+		<xsd:element ref="ep_fafa_ts_est_mthd"/>
+		<xsd:element ref="qty_ep_rnd_ab"/>
+		<xsd:element ref="qty_ep_rnd_bc"/>
+		<xsd:element ref="qty_ep_rnd_mb"/>
+		<xsd:element ref="qty_ep_rnd_nb"/>
+		<xsd:element ref="qty_ep_rnd_nl"/>
+		<xsd:element ref="qty_ep_rnd_ns"/>
+		<xsd:element ref="qty_ep_rnd_nt"/>
+		<xsd:element ref="qty_ep_rnd_nu"/>
+		<xsd:element ref="qty_ep_rnd_on"/>
+		<xsd:element ref="qty_ep_rnd_pe"/>
+		<xsd:element ref="qty_ep_rnd_qc"/>
+		<xsd:element ref="qty_ep_rnd_sk"/>
+		<xsd:element ref="qty_ep_rnd_yt"/>
+		<xsd:element ref="qty_ep_rnd_users_ab"/>
+		<xsd:element ref="qty_ep_rnd_users_bc"/>
+		<xsd:element ref="qty_ep_rnd_users_mb"/>
+		<xsd:element ref="qty_ep_rnd_users_nb"/>
+		<xsd:element ref="qty_ep_rnd_users_nl"/>
+		<xsd:element ref="qty_ep_rnd_users_ns"/>
+		<xsd:element ref="qty_ep_rnd_users_nt"/>
+		<xsd:element ref="qty_ep_rnd_users_nu"/>
+		<xsd:element ref="qty_ep_rnd_users_on"/>
+		<xsd:element ref="qty_ep_rnd_users_pe"/>
+		<xsd:element ref="qty_ep_rnd_users_qc"/>
+		<xsd:element ref="qty_ep_rnd_users_sk"/>
+		<xsd:element ref="qty_ep_rnd_users_yt"/>
+		<xsd:element ref="qty_ep_rnd_users_ab_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_bc_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_mb_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_nb_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_nl_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_ns_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_nt_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_nu_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_on_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_pe_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_qc_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_sk_est_ind"/>
+		<xsd:element ref="qty_ep_rnd_users_yt_est_ind"/>
+		<xsd:element ref="ep_rnd_users_est_mthd"/>
+		<xsd:element ref="qty_ep_regt_uvd_ab"/>
+		<xsd:element ref="qty_ep_regt_uvd_bc"/>
+		<xsd:element ref="qty_ep_regt_uvd_mb"/>
+		<xsd:element ref="qty_ep_regt_uvd_nb"/>
+		<xsd:element ref="qty_ep_regt_uvd_nl"/>
+		<xsd:element ref="qty_ep_regt_uvd_ns"/>
+		<xsd:element ref="qty_ep_regt_uvd_nt"/>
+		<xsd:element ref="qty_ep_regt_uvd_nu"/>
+		<xsd:element ref="qty_ep_regt_uvd_on"/>
+		<xsd:element ref="qty_ep_regt_uvd_pe"/>
+		<xsd:element ref="qty_ep_regt_uvd_qc"/>
+		<xsd:element ref="qty_ep_regt_uvd_sk"/>
+		<xsd:element ref="qty_ep_regt_uvd_yt"/>
+		<xsd:element ref="npsr_addl_info"/>
+		<xsd:element ref="npsr_product_md01"/>
+		<xsd:element ref="npsr_product_md02"/>
+		<xsd:element ref="npsr_product_md03"/>
+		<xsd:element ref="npsr_product_md04"/>
+		<xsd:element ref="npsr_product_md05"/>
+		<xsd:element ref="npsr_product_md06"/>
+		<xsd:element ref="npsr_product_md07"/>
+		<xsd:element ref="npsr_product_md08"/>
+		<xsd:element ref="npsr_product_md09"/>
+		<xsd:element ref="npsr_product_md10"/>
+		<xsd:element ref="npsr_product_md11"/>
+		<xsd:element ref="npsr_product_md12"/>
+		<xsd:element ref="npsr_product_md13"/>
+		<xsd:element ref="npsr_product_md14"/>
+		<xsd:element ref="npsr_product_md15"/>
+		<xsd:element ref="npsr_product_md16"/>
+		<xsd:element ref="npsr_product_md17"/>
+		<xsd:element ref="npsr_product_md18"/>
+		<xsd:element ref="npsr_product_md19"/>
+		<xsd:element ref="npsr_product_md20"/>
+		<xsd:element ref="npsr_product_md21"/>
+		<xsd:element ref="npsr_product_md22"/>
+		<xsd:element ref="npsr_product_md23"/>
+		<xsd:element ref="npsr_product_md24"/>
+		<xsd:element ref="npsr_product_md25"/>
+		<xsd:element ref="npsr_product_md26"/>
+		<xsd:element ref="npsr_product_md27"/>
+		<xsd:element ref="npsr_product_md28"/>
+		<xsd:element ref="npsr_product_md29"/>
+		<xsd:element ref="npsr_product_md30"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="npsr_type_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="N"/>
+		<xsd:enumeration value="A"/>
+		<xsd:enumeration value="I"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="npsr_amend_info_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value=".{0,2000}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="regt_madco_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value=".{0}|[0-9]{4}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="regt_seq_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value=".{0}|[0-9]{3}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="char_0_2000_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value=".{0,2000}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="char_1_2000_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value=".{1,2000}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="char_1_256_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value=".{1,256}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="year_Content">
+	<xsd:restriction base="xsd:gYear">
+		<xsd:pattern value="[0-9]{4}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="yyyymmdd_date_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value="[0-9]{0,4}-{0,1}[0-9]{0,2}-{0,1}[0-9]{0,2}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+	<xsd:simpleType name="number_Content_0_14">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{0,14}|[0-9.0-9]{1,15}|[\-0-9]{0,15}|[\-0-9.0-9]{1,16}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+<xsd:simpleType name="char_0_10_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value=".{0,10}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+	<xsd:simpleType name="number_Content_1_14">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{1,14}|[0-9.0-9]{1,15}|[\-0-9]{0,15}|[\-0-9.0-9]{1,16}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+<xsd:simpleType name="YES_NO_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value="[y|Y]{1}|[n|N]{1}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="char_1_70_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value=".{1,70}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="classification_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="T"/>
+		<xsd:enumeration value="M"/>
+		<xsd:enumeration value="C"/>
+		<xsd:enumeration value="D"/>
+		<xsd:enumeration value="R"/>
+		<xsd:enumeration value="C+R"/>
+		<xsd:enumeration value="C+T"/>
+		<xsd:enumeration value="C+M"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="units_Content">
+	
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value=""/>
+		<xsd:enumeration value="UNIT_ML"/>
+		<xsd:enumeration value="UNIT_DL"/>
+		<xsd:enumeration value="UNIT_CL"/>
+		<xsd:enumeration value="UNIT_LITRE"/>
+		<xsd:enumeration value="UNIT_MG"/>
+		<xsd:enumeration value="UNIT_GMS"/>
+		<xsd:enumeration value="UNIT_KG"/>
+	</xsd:restriction>
+
+
+
+</xsd:simpleType>
+
+<xsd:simpleType name="owner_period_start_end_Content">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value="[0-9]{0,4}[\-]{0,1}[0-9]{0,2}[\-]{0,1}[0-9]{0,2}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>

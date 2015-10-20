@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prz extract" default="all" basedir=".">
+	<description>Build the PDF Extraction Package(s).</description>
+
+	<!-- set global properties for this build -->
+	<property name="base" location="."/>
+	
+	<property name="javac.home" value="C:\Program Files\Java\jdk1.5.0_22"/>
+	<property name="prz.src.base" location="${base}/src/prz"/>
+	<property name="xml.src.base" location="${base}/src/xml"/>
+	
+
+	<path id="compile.classpath">
+		<fileset dir="${base}/lib">
+			<include name="*.jar"/>
+			<include name="*.zip"/>
+		</fileset>
+
+	</path>
+
+	<target name="phase1">
+		<echo message="*** Building Phase 1 - Extract Archive."/>
+		<property name="version" value="1.0"/>
+		<property name="jar.name" value="phase1.jar"/>
+		<property name="app.name" value="Extract_Archive"/>
+		<property name="dist.home" value="${basedir}/phase1_build/lib"/>
+		<property name="build.home" location="${basedir}/phase1_build"/>
+		<property name="class.base" location="${build.home}/class"/>
+		<property name="src.base" location="${basedir}/src"/>
+		<property name="phase1.src.base" location="${src.base}/phase1"/>
+
+		<echo message="Creating Phase 1 Build Directories"/>
+		<mkdir dir="${class.base}"/>
+		<mkdir dir="${dist.home}"/>
+
+		<echo message="Coping Phase 1 Manifest File"/>
+		<copy file="${phase1.src.base}/phase1Manifest.MF" todir="${class.base}"/>
+
+		<echo message="Compile PRZ Source File(s)."/>
+		<javac srcdir="${prz.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}"/>
+
+		<echo message="Compile XML Source File(s)."/>
+		<javac srcdir="${xml.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}"/>
+
+		<echo message="Compile Phase 1 Source File(s)."/>
+		<javac srcdir="${phase1.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+		
+		<jar destfile="${dist.home}/${jar.name}" manifest="${class.base}/phase1Manifest.MF">
+			<fileset dir="${class.base}">
+				<exclude name="phase1Manifest.MF"/>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="phase2">
+		<echo message="*** Building Phase 2 - Extract Archive."/>
+		<property name="version" value="1.0"/>
+		<property name="jar.name" value="phase2.jar"/>
+		<property name="app.name" value="Extract_Archive"/>
+		<property name="dist.home" value="${basedir}/phase2_build/lib"/>
+		<property name="build.home" location="${basedir}/phase2_build"/>
+		<property name="class.base" location="${build.home}/class"/>
+		<property name="src.base" location="${basedir}/src"/>
+		<property name="phase2.src.base" location="${src.base}/phase2"/>
+		<property name="lib.home" value="${basedir}/lib"/>
+
+		<echo message="Creating Phase 2 Build Directories"/>
+		<mkdir dir="${class.base}"/>
+		<mkdir dir="${dist.home}"/>
+
+		<echo message="Coping Phase 2 Manifest File"/>
+		<copy file="${phase2.src.base}/phase2Manifest.MF" todir="${class.base}"/>
+		<copy file="${lib.home}/xalan.jar" todir="${class.base}"/>
+
+		<echo message="Compile Phase 2 Source File(s)."/>
+		<javac srcdir="${phase2.src.base}" destdir="${class.base}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+
+		<jar destfile="${dist.home}/${jar.name}" manifest="${class.base}/phase2Manifest.MF">
+			<fileset dir="${class.base}">
+				<exclude name="phase2Manifest.MF"/>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="phase3" description="Build the phase3.jar file">
+		<echo message="*** Building Phase 3 - Extract Archive."/>
+		<property name="version" value="1.0"/>
+		<property name="jar.name" value="phase3.jar"/>
+		<property name="app.name" value="Extract_Archive"/>
+		<property name="dist.home" value="${basedir}/phase3_build/lib"/>
+		<property name="build.home" location="${basedir}/phase3_build"/>
+		<property name="class.base" location="${build.home}/class"/>
+		<property name="src.base" location="${basedir}/src"/>
+		<property name="phase3.src.base" location="${src.base}/phase3"/>
+		<property name="lib.home" value="${basedir}/lib"/>
+
+		<echo message="Creating Phase 3 Build Directories"/>
+		<mkdir dir="${class.base}"/>
+		<mkdir dir="${dist.home}"/>
+		<mkdir dir="${class.base}/com" />
+
+		<echo message="Coping Phase 3 Manifest File"/>
+		<copy file="${phase3.src.base}/phase3Manifest.MF" todir="${class.base}"/>
+        
+		<echo message="Coping Phase 3 Adobe Files"/>
+		<copy todir="${class.base}/com" preservelastmodified="true">
+            <fileset dir="${lib.home}/com">
+                <include name="**/*" />
+            </fileset>
+        </copy>
+
+		<echo message="Compile Phase 3 Source File(s)."/>
+		<javac srcdir="${phase3.src.base}" destdir="${class.base}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+
+		<jar destfile="${dist.home}/${jar.name}" manifest="${class.base}/phase3Manifest.MF">
+			<fileset dir="${class.base}">
+				<exclude name="phase3Manifest.MF"/>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="phase4">
+		<echo message="*** Building Phase 4 - Extract Archive."/>
+		<property name="version" value="1.0"/>
+		<property name="jar.name" value="phase4.jar"/>
+		<property name="app.name" value="Extract_Archive"/>
+		<property name="dist.home" value="${basedir}/phase4_build/lib"/>
+		<property name="build.home" location="${basedir}/phase4_build"/>
+		<property name="class.base" location="${build.home}/class"/>
+		<property name="src.base" location="${basedir}/src"/>
+		<property name="phase4.src.base" location="${src.base}/phase4"/>
+		<property name="lib.home" value="${basedir}/lib"/>
+
+		<echo message="Creating Phase 4 Build Directories"/>
+		<mkdir dir="${class.base}"/>
+		<mkdir dir="${dist.home}"/>
+		<mkdir dir="${class.base}/com" />
+
+		<echo message="Coping Phase 4 Manifest File"/>
+		<copy file="${phase4.src.base}/phase4Manifest.MF" todir="${class.base}"/>
+        
+		<echo message="Coping Phase 4 Adobe Files"/>
+		<copy todir="${class.base}/com" preservelastmodified="true">
+            <fileset dir="${lib.home}/com">
+                <include name="**/*" />
+            </fileset>
+        </copy>
+
+		<echo message="Compile Phase 4 Source File(s)."/>
+		<javac srcdir="${phase4.src.base}" destdir="${class.base}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+
+		<jar destfile="${dist.home}/${jar.name}" manifest="${class.base}/phase4Manifest.MF">
+			<fileset dir="${class.base}">
+				<exclude name="phase4Manifest.MF"/>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="phase5">
+		<echo message="*** Building Phase 5 - Extract Attachments."/>
+		<property name="version" value="1.0"/>
+		<property name="jar.name" value="phase5.jar"/>
+		<property name="app.name" value="Extract_Attachments"/>
+		<property name="dist.home" value="${basedir}/phase5_build/lib"/>
+		<property name="build.home" location="${basedir}/phase5_build"/>
+		<property name="class.base" location="${build.home}/class"/>
+		<property name="src.base" location="${basedir}/src"/>
+		<property name="phase5.src.base" location="${src.base}/phase5"/>
+		<property name="lib.home" value="${basedir}/lib"/>
+
+		<echo message="Creating Phase 5 Build Directories"/>
+		<mkdir dir="${class.base}"/>
+		<mkdir dir="${dist.home}"/>
+		<mkdir dir="${class.base}/com" />
+
+		<echo message="Coping Phase 5 Manifest File"/>
+		<copy file="${phase5.src.base}/phase5Manifest.MF" todir="${class.base}"/>
+
+		<echo message="Coping Phase 5 Adobe Files"/>
+		<copy todir="${class.base}/com" preservelastmodified="true">
+            <fileset dir="${lib.home}/com">
+                <include name="**/*" />
+            </fileset>
+        </copy>
+
+		<echo message="Compile Phase 5 Source File(s)."/>
+		<javac srcdir="${phase5.src.base}" destdir="${class.base}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+
+		<jar destfile="${dist.home}/${jar.name}" manifest="${class.base}/phase5Manifest.MF">
+			<fileset dir="${class.base}">
+				<exclude name="phase5Manifest.MF"/>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="all">
+		<echo message="*** Building Extract All - Extract Archive."/>
+		<property name="version" value="1.0"/>
+		<property name="jar.name" value="extract.jar"/>
+		<property name="app.name" value="Extract_Archive"/>
+		<property name="dist.home" value="${basedir}/extract_all_build/lib"/>
+		<property name="build.home" location="${basedir}/extract_all_build"/>
+		<property name="class.base" location="${build.home}/class"/>
+		<property name="src.base" location="${basedir}/src"/>
+		<property name="all.src.base" location="${src.base}/all"/>
+		<property name="lib.home" value="${basedir}/lib"/>
+		<property name="phase1.src.base" location="${src.base}/phase1"/>
+		<property name="phase2.src.base" location="${src.base}/phase2"/>
+		<property name="phase3.src.base" location="${src.base}/phase3"/>
+		<property name="phase4.src.base" location="${src.base}/phase4"/>
+		<property name="phase5.src.base" location="${src.base}/phase5"/>
+
+		<echo message="Creating Extract All Build Directories"/>
+		<mkdir dir="${class.base}"/>
+		<mkdir dir="${dist.home}"/>
+		<mkdir dir="${class.base}/com" />
+
+		<echo message="Coping Adobe Files"/>
+		<copy todir="${class.base}/com" preservelastmodified="true">
+            <fileset dir="${lib.home}/com">
+                <include name="**/*" />
+            </fileset>
+        </copy>
+
+		<echo message="Coping Extract All Manifest File"/>
+		<copy file="${all.src.base}/allManifest.MF" todir="${class.base}"/>
+		
+		
+			
+		<echo message="Compile PRZ Source File(s)."/>
+		<javac  includeantruntime="false" srcdir="${prz.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}"/>
+
+		<echo message="Compile XML Source File(s)."/>
+		<javac srcdir="${xml.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}"/>
+
+		<echo message="Compile Extract All Source File(s)."/>
+		<javac srcdir="${phase1.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+		<javac srcdir="${phase2.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+		<javac srcdir="${phase3.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+		<javac srcdir="${phase4.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+		<javac srcdir="${phase5.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+		<javac srcdir="${all.src.base}" destdir="${class.base}" fork="yes" executable="${javac.home}/bin/javac" debug="${compile.debug}" deprecation="${compile.deprecation}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+		
+		
+
+		<jar destfile="${dist.home}/${jar.name}" manifest="${class.base}/allManifest.MF">
+			<fileset dir="${class.base}">
+				<exclude name="allManifest.MF"/>
+			</fileset>
+		</jar>
+	</target>
+</project>
