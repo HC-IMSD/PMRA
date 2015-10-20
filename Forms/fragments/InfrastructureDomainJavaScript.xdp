@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xfa generator="AdobeLiveCycleDesignerES_V9.0.0.1.20100329.2.659576" APIVersion="3.1.9277.0"?>
+<xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2011-10-31T18:32:43Z" uuid="6b487d6e-70dc-4362-8610-4d3a504f0ac2">
+<template xmlns="http://www.xfa.org/schema/xfa-template/3.0/">
+   <?formServer defaultPDFRenderFormat acrobat9.1static?>
+   <?formServer allowRenderCaching 0?>
+   <?formServer formModel both?>
+   <subform name="script" locale="en_CA" layout="tb">
+      <pageSet>
+         <pageArea>
+            <contentArea h="254mm" id="caMain_ID" name="caMain" w="203.2mm" x="6.35mm" y="15.875mm">
+               <?templateDesigner expand 1?></contentArea>
+            <medium long="279.4mm" short="215.9mm" stock="letter"/>
+            <?templateDesigner expand 0?></pageArea>
+         <?templateDesigner expand 1?></pageSet>
+      <subform w="100mm" h="100mm" name="infrastructureDomain">
+         <subform w="100mm" h="50mm" name="config" y="50mm">
+            <variables>
+               <script contentType="application/x-javascript" name="webService">//
+/*******************************************************************************
+ * Infrastructure Domain WebService configuration
+ */
+var content = { //Required to wrap entries
+
+//Form Management Web Service
+formManagementWsDebugMode: false,
+formManagementWsNameSpace: "http://online.webservice.nhpd.hc.gc.ca/",
+//Used by the Web Service (defaults to dev)
+formManagementWsUrl: "http://was-tqa-dev:8080/FormManagementService/FormManagementService",
+
+formManagementWsUrl_dev: "http://was-tqa-dev:8080/FormManagementService/FormManagementService",
+//formManagementWsUrl_test: "http://guppy:8080/FormManagementService/FormManagementService",
+formManagementWsUrl_test: "http://was-tqa-test:8080/FormManagementService/FormManagementService",
+formManagementWsUrl_prod: "http://webprod.hc-sc.gc.ca/FormManagementService/FormManagementService"
+
+}
+</script>
+               <?templateDesigner expand 0?></variables>
+            <bind match="none"/>
+            <?templateDesigner expand 0?></subform>
+         <subform w="100mm" h="50mm" name="model">
+            <variables>
+               <script contentType="application/x-javascript" name="VersionStatus">//
+/*******************************************************************************
+ * A VersionStatus contains information about whether a form / version is
+ * currently supported.
+ */
+
+//imports
+var cTypeEnforcer = script.core.util.TypeEnforcer;
+
+var STATUS_LOCK = "2";
+var STATUS_MESSAGE = "3";
+var STATUS_OK = "0";
+var STATUS_WARNING = "1";
+
+/**
+ * Gets a new VersionStatus. Adobe does not allow object instances to be
+ * created outside of their packaging, so it must be done here.
+ * @param statusCode a String containing the status code returned from the
+ *		  service.
+ * @param message (optional) a String containing the message to be displayed to the user.
+ * @param downloadUrl (optional) a String containing the URL that a new version of this
+ *		  form could be downloaded from.
+ * @return the new VersionStatus instance
+ */
+function createInstance(statusCode, message, downloadUrl)
+{
+	return new VersionStatusClass(statusCode, message, downloadUrl);
+}
+
+/**
+ * Class implementation
+ * @param statusCode a String containing the status code returned from the
+ *		  service.
+ * @param message (optional) a String containing the message to be displayed to the user.
+ * @param downloadUrl (optional) a String containing the URL that a new version of this
+ *		  form could be downloaded from.
+ */
+function VersionStatusClass(statusCode, message, downloadUrl) {
+	this.className = "VersionStatus";
+
+	this.downloadUrl = downloadUrl;
+	this.message = message;
+	this.statusCode = statusCode;
+
+	cTypeEnforcer.checkString(downloadUrl, "VersionStatus", "constructor", "downloadUrl",
+							 true);
+	cTypeEnforcer.checkString(message, "VersionStatus", "constructor", "message",
+							 true);
+	cTypeEnforcer.checkString(statusCode, "VersionStatus", "constructor", "statusCode");
+	
+	/**
+	 * Gets the URL that a new version of this form could be downloaded from.
+	 * @return a String containing the URL.
+	 */
+ 	this.getDownloadUrl = function()
+	{
+		return this.downloadUrl;
+	}
+	
+	/**
+	 * Gets the message to be displayed to the user.
+	 * @return a String if there is a message. Null otherwise.
+	 */
+ 	this.getMessage = function()
+	{
+		return this.message;
+	}
+	
+	/**
+	 * Gets the status code returned from the service.
+	 * @return a String that contains a number
+	 */
+	this.getStatusCode = function()
+	{
+		return this.statusCode;
+	}
+
+	/**
+	 * Gets whether there is a message to display to the user.
+	 * @return a boolean true if there is a message to display to the user.
+	 */
+ 	this.isMessage = function()
+	{
+		return (this.statusCode == STATUS_MESSAGE);
+	}
+
+	/**
+	 * Gets whether this form version is no longer in use. If so, this will
+	 * also contain a message for the user.
+	 * @return a boolean true if this form should be locked down. A message
+	 *		   is included.
+	 */
+	this.isLock = function()
+	{
+		return (this.statusCode == STATUS_LOCK);
+	}
+  	
+	/**
+	 * Gets whether the form version is in current use.
+	 * @return a boolean true if this is the current version of the form. A
+	 *		   message may be included.
+	 */
+ 	this.isOk = function()
+	{
+		return (this.statusCode == STATUS_OK);
+	}
+
+	/**
+	 * Gets whether this form version is nearing the end of it useful life.
+	 * @return a boolean true if this form will soon be replaced. A message is
+	 *		   included.
+	 */
+	this.isWarning = function()
+	{
+		return (this.statusCode == STATUS_WARNING);
+	}
+  
+    /**
+     * Describes this object. Used for debugging. Unfortunately, the Adobe
+     * environment does not support over-riding toString()!
+     * @return a String the description of this exception.
+     */
+    this.asString = function ()
+	{
+		return this.className + "[statusCode = " + this.getStatusCode() 
+			   + ", message = " + this.getMessage() 
+			   + ", downloadUrl = " + this.getDownloadUrl() + "]";
+	}
+}
+
+
+</script>
+               <?templateDesigner expand 0?></variables>
+            <bind match="none"/>
+            <?templateDesigner expand 0?></subform>
+         <subform w="100mm" h="50mm" name="resources">
+            <variables>
+               <script contentType="application/x-javascript" name="webService_en">//
+/*******************************************************************************
+ * English text for the Infrastructure Domain WebService
+ */
+
+var content = { //Required to wrap entries
+
+//Error messages
+error_handshakeFailure: "The Web Service does not recognize the secure handshake",
+
+}
+</script>
+               <script contentType="application/x-javascript" name="webService_fr">//
+/*******************************************************************************
+ * French text for the Infrastructure Domain WebService
+ */
+
+var content = { //Required to wrap entries
+
+//Error messages
+error_handshakeFailure: "The Web Service does not recognize the secure handshake",
+
+}
+
+</script>
+               <?templateDesigner expand 0?></variables>
+            <bind match="none"/>
+            <?templateDesigner expand 0?></subform>
+         <subform w="100mm" h="50mm" name="service">
+            <variables>
+               <script contentType="application/x-javascript" name="FormManagementService">//
+/*******************************************************************************
+ * This accesses a Web Service that provides functionality to support managing
+ * decentralized forms.
+ */
+
+//imports
+var cConfigurationManager = script.core.util.ConfigurationManager;
+var cLocalizedException = script.core.lang.LocalizedException;
+var cLog = script.core.util.Log;
+var cSecurityUtil = script.core.util.SecurityUtil; 
+var cTypeChecker = script.core.util.TypeChecker;
+var cTypeEnforcer = script.core.util.TypeEnforcer;
+var cVersionStatus = script.infrastructureDomain.model.VersionStatus;
+var cWebService = script.core.service.WebService;
+
+var _MAXIMUM_RETRIES = 3;
+var _SERVER_SECRET_OPERATION = "getTotal"; //Operation that retrieves the server secret
+var _WEBSERVICE_DEBUG_MODE_KEY = "formManagementWsDebugMode";
+var _WEBSERVICE_NAMESPACE_KEY = "formManagementWsNameSpace";
+var _WEBSERVICE_URL_KEY = "formManagementWsUrl";
+
+var fmWebService;
+
+/**
+ * Checks whether the passed form version is supported.
+ * @param formType a String containing the type of form to check.
+ * @param formVersion a String containing the version of the form to check.
+ * @return a VersionStatus with form version support information.
+ * @throws Internationalized Exception if there was a problem with the Web
+ *		   Services call (connecting to the service, problem with the soap
+ *		   request, etc.).
+ * @throws UnexpectedDataType Exception if any of the parameters or return values
+ *		   during processing aren't as expected.
+ */
+function checkFormVersion(formType, formVersion)
+{	
+	cTypeEnforcer.checkString(formType, "FormManagementService",
+							 "checkFormVersion", "formType");
+	cTypeEnforcer.checkString(formVersion, "FormManagementService",
+							 "checkFormVersion", "formVersion");
+
+	var operationArguments = {arg0: formVersion, arg1: formType};
+	var response = _getWebService().callServiceOperation("checkFormVersion",
+														 operationArguments);
+	
+	var downloadUrl = response.getStringResultByName("downloadUrl", true);
+	var message = response.getStringResultByName("message", true);
+	var statusCode = response.getStringResultByName("statusCode");		
+
+	return cVersionStatus.createInstance(statusCode, message, downloadUrl);
+}
+
+/**
+ * Gets a unique code to associate with an attestation. This will retry a number
+ * of times if a bad response is received before giving up (a true code should
+ * be alphanumeric - if a number is returned, the service is returning a "fake"
+ * since the expected handshake failed).
+ * @return a String that contains a unique code to associate with an attestation.
+ * @throws LocalizedException if there was a problem with the Web Services call
+ *		   (connecting to the service, problem with the soap request, etc.) or
+ *		   if the maximum number of retries was exceeded.
+ * @throws UnexpectedDataType Exception if any of the parameters or return
+ *		   values during processing aren't as expected.
+ */
+function getAttestationCode()
+{	
+	var code;
+
+	for (var i=0; i &lt;= _MAXIMUM_RETRIES; i++)
+	{
+		code = _getSecureCode("getAttestationCode");
+		if (!cTypeChecker.isNumber(code))
+		{
+			return code;
+		}
+	}
+	throw cLocalizedException.createInstance("error_handshakeFailure");
+}
+
+/**
+ * Gets a unique form tracking number. This will retry a number of times if a
+ * bad response is received before giving up (a true code should be alphanumeric
+ * - if a number is returned, the service is returning a "fake" since the
+ * expected handshake failed).
+ * @return a String that contains a unique form tracking number.
+ * @throws LocalizedException if there was a problem with the Web Services call
+ *		   (connecting to the service, problem with the soap request, etc.) or
+ *		   if the maximum number of retries was exceeded.
+ * @throws UnexpectedDataType Exception if any of the parameters or return
+ *		   values during processing aren't as expected.
+ */
+function getTrackingNumber()
+{	
+	var code;
+
+	for (var i=0; i &lt;= _MAXIMUM_RETRIES; i++)
+	{
+		code = _getSecureCode("getTrackingCode");
+		if (!cTypeChecker.isNumber(code))
+		{
+			return code;
+		}
+	}
+	throw cLocalizedException.createInstance("error_handshakeFailure");
+}
+
+/**
+ * Gets the version information of this Web Service.
+ * @return a String the version information of this Web Service.
+ * @throws Internationalized Exception if there was a problem with the Web
+ *		   Services call (connecting to the service, problem with the soap
+ *		   request, etc.).
+ * @throws UnexpectedDataType Exception if any of the parameters or return values
+ *		   during processing aren't as expected.
+ */
+function getVersion()
+{	
+	var response = _getWebService().callServiceOperation("getVersion");
+	
+	return response.getStringResult("version");
+}
+	
+//===== PRIVATE ================================================================
+
+/**
+ * Creates a secret used to share with the server.
+ * @return a String that contains a secret used to share with the server.
+ */
+function _getFormSecret()
+{
+	var date = new Date();
+	
+	return date.getTime() + 'a';
+}
+
+/**
+ * Gets a code from the Web Services that is protected by a secure handshake.
+ * @param operation a String containing the name of the protected web service
+ *		  operation to call.
+ * @return a String that contains the secure response.
+ * @throws Internationalized Exception if there was a problem with the Web
+ *		   Services call (connecting to the service, problem with the soap
+ *		   request, etc.).
+ * @throws UnexpectedDataType Exception if any of the parameters or return values
+ *		   during processing aren't as expected.
+ */
+function _getSecureCode(operation)
+{	
+	var formSecret = _getFormSecret();
+
+	var secretOperationArguments = {arg0: formSecret};
+	var secretResponse = _getWebService().callServiceOperation(
+						 _SERVER_SECRET_OPERATION, secretOperationArguments);	
+	var serverSecret = secretResponse.getStringResult("serverSecret");
+
+	var hash = cSecurityUtil.getHexadecimalMD5Hash(
+					cSecurityUtil.getHexadecimalMD5Hash(formSecret) 
+					+ 'f' 
+					+ cSecurityUtil.getHexadecimalMD5Hash(serverSecret));
+		
+	var secureOperationArguments = {arg0: hash};
+	var secureResponse = _getWebService().callServiceOperation(operation,
+										  secureOperationArguments);	
+		
+	return secureResponse.getStringResult(operation);
+}
+
+/**
+ * Gets the WebService used to retrieve requested information. This is lazy 
+ * loaded so that the configuration entries can be over-ridden.
+ */
+function _getWebService()
+{
+	if (fmWebService == undefined)
+	{	
+		var debugMode = cConfigurationManager.get(_WEBSERVICE_DEBUG_MODE_KEY);
+		var message;
+		var nameSpace = cConfigurationManager.get(_WEBSERVICE_NAMESPACE_KEY);
+		var url = cConfigurationManager.get(_WEBSERVICE_URL_KEY);		
+
+		message = "Using Form Management Web Service at URL: " + url;
+		if (debugMode)
+		{
+			message += " in debug mode";
+		}
+		cLog.info(message);
+		fmWebService = cWebService.createInstance(url, nameSpace, debugMode);
+	}
+	return fmWebService;
+}
+
+</script>
+               <?templateDesigner expand 0?></variables>
+            <bind match="none"/>
+            <?templateDesigner expand 0?></subform>
+         <?templateDesigner isFragment yes?>
+         <?templateDesigner fragmentTitle infrastructureDomain?>
+         <?templateDesigner fragmentDescription Contains the objects used to model the infrastructure domain (subject area) that is used to support the forms. Also includes their data access objects.?>
+         <?templateDesigner expand 1?>
+         <bind match="none"/>
+      </subform>
+      <?templateDesigner expand 1?>
+   </subform>
+   <?originalXFAVersion http://www.xfa.org/schema/xfa-template/3.0/?>
+   <?templateDesigner DefaultLanguage JavaScript?>
+   <?templateDesigner DefaultRunAt client?>
+   <?acrobat JavaScript strictScoping?>
+   <?PDFPrintOptions embedViewerPrefs 0?>
+   <?PDFPrintOptions embedPrintOnFormOpen 0?>
+   <?PDFPrintOptions scalingPrefs 0?>
+   <?PDFPrintOptions enforceScalingPrefs 0?>
+   <?PDFPrintOptions paperSource 0?>
+   <?PDFPrintOptions duplexMode 0?>
+   <?templateDesigner DefaultPreviewType interactive?>
+   <?templateDesigner DefaultPreviewPagination simplex?>
+   <?templateDesigner XDPPreviewFormat 19?>
+   <?templateDesigner ValidationMessaging noMessages?>
+   <?templateDesigner FormTargetVersion 30?>
+   <?templateDesigner Zoom 25?>
+   <?templateDesigner Rulers horizontal:1, vertical:1, guidelines:1, crosshairs:0?></template>
+<config xmlns="http://www.xfa.org/schema/xci/3.0/">
+   <agent name="designer">
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+      </pdf>
+   </agent>
+   <present>
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+         <version>1.7</version>
+         <adobeExtensionLevel>5</adobeExtensionLevel>
+      </pdf>
+      <cache>
+         <macroCache/>
+      </cache>
+      <xdp>
+         <packets>*</packets>
+      </xdp>
+   </present>
+   <acrobat>
+      <common>
+         <validationMessaging>noMessages</validationMessaging>
+      </common>
+   </acrobat>
+</config>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 4.2.1-c041 52.337767, 2008/04/13-15:41:00        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/" rdf:about="">
+         <xmp:MetadataDate>2011-10-31T18:32:43Z</xmp:MetadataDate>
+         <xmp:CreatorTool>Adobe LiveCycle Designer ES 9.0</xmp:CreatorTool>
+      </rdf:Description>
+      <rdf:Description xmlns:pdf="http://ns.adobe.com/pdf/1.3/" rdf:about="">
+         <pdf:Producer>Adobe LiveCycle Designer ES 9.0</pdf:Producer>
+      </rdf:Description>
+      <rdf:Description xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" rdf:about="">
+         <xmpMM:DocumentID>uuid:6b487d6e-70dc-4362-8610-4d3a504f0ac2</xmpMM:DocumentID>
+      </rdf:Description>
+      <rdf:Description xmlns:lcd="http://ns.adobe.com/livecycle/designer/" xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:about="">
+         <lcd:fragmentCatalog>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <dc:title>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default">infrastructureDomain</rdf:li>
+                     </rdf:Alt>
+                  </dc:title>
+                  <dc:description>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default">Contains the objects used to model the infrastructure domain (subject area) that is used to support the forms. Also includes their data access objects.</rdf:li>
+                     </rdf:Alt>
+                  </dc:description>
+                  <dc:identifier>$template.script.infrastructureDomain</dc:identifier>
+                  <lcd:fragmentRole>Subform</lcd:fragmentRole>
+               </rdf:li>
+            </rdf:Seq>
+         </lcd:fragmentCatalog>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+<localeSet xmlns="http://www.xfa.org/schema/xfa-locale-set/2.7/">
+   <locale name="en_CA" desc="English (Canada)">
+      <calendarSymbols name="gregorian">
+         <monthNames>
+            <month>January</month>
+            <month>February</month>
+            <month>March</month>
+            <month>April</month>
+            <month>May</month>
+            <month>June</month>
+            <month>July</month>
+            <month>August</month>
+            <month>September</month>
+            <month>October</month>
+            <month>November</month>
+            <month>December</month>
+         </monthNames>
+         <monthNames abbr="1">
+            <month>Jan</month>
+            <month>Feb</month>
+            <month>Mar</month>
+            <month>Apr</month>
+            <month>May</month>
+            <month>Jun</month>
+            <month>Jul</month>
+            <month>Aug</month>
+            <month>Sep</month>
+            <month>Oct</month>
+            <month>Nov</month>
+            <month>Dec</month>
+         </monthNames>
+         <dayNames>
+            <day>Sunday</day>
+            <day>Monday</day>
+            <day>Tuesday</day>
+            <day>Wednesday</day>
+            <day>Thursday</day>
+            <day>Friday</day>
+            <day>Saturday</day>
+         </dayNames>
+         <dayNames abbr="1">
+            <day>Sun</day>
+            <day>Mon</day>
+            <day>Tue</day>
+            <day>Wed</day>
+            <day>Thu</day>
+            <day>Fri</day>
+            <day>Sat</day>
+         </dayNames>
+         <meridiemNames>
+            <meridiem>AM</meridiem>
+            <meridiem>PM</meridiem>
+         </meridiemNames>
+         <eraNames>
+            <era>BC</era>
+            <era>AD</era>
+         </eraNames>
+      </calendarSymbols>
+      <datePatterns>
+         <datePattern name="full">EEEE, MMMM D, YYYY</datePattern>
+         <datePattern name="long">MMMM D, YYYY</datePattern>
+         <datePattern name="med">D-MMM-YY</datePattern>
+         <datePattern name="short">DD/MM/YY</datePattern>
+      </datePatterns>
+      <timePatterns>
+         <timePattern name="full">h:MM:SS A Z</timePattern>
+         <timePattern name="long">h:MM:SS A Z</timePattern>
+         <timePattern name="med">h:MM:SS A</timePattern>
+         <timePattern name="short">h:MM A</timePattern>
+      </timePatterns>
+      <dateTimeSymbols>GyMdkHmsSEDFwWahKzZ</dateTimeSymbols>
+      <numberPatterns>
+         <numberPattern name="numeric">z,zz9.zzz</numberPattern>
+         <numberPattern name="currency">$z,zz9.99</numberPattern>
+         <numberPattern name="percent">z,zz9%</numberPattern>
+      </numberPatterns>
+      <numberSymbols>
+         <numberSymbol name="decimal">.</numberSymbol>
+         <numberSymbol name="grouping">,</numberSymbol>
+         <numberSymbol name="percent">%</numberSymbol>
+         <numberSymbol name="minus">-</numberSymbol>
+         <numberSymbol name="zero">0</numberSymbol>
+      </numberSymbols>
+      <currencySymbols>
+         <currencySymbol name="symbol">$</currencySymbol>
+         <currencySymbol name="isoname">CAD</currencySymbol>
+         <currencySymbol name="decimal">.</currencySymbol>
+      </currencySymbols>
+      <typefaces>
+         <typeface name="Myriad Pro"/>
+         <typeface name="Minion Pro"/>
+         <typeface name="Courier Std"/>
+         <typeface name="Adobe Pi Std"/>
+         <typeface name="Adobe Hebrew"/>
+         <typeface name="Adobe Arabic"/>
+         <typeface name="Adobe Thai"/>
+         <typeface name="Kozuka Gothic Pro-VI M"/>
+         <typeface name="Kozuka Mincho Pro-VI R"/>
+         <typeface name="Adobe Ming Std L"/>
+         <typeface name="Adobe Song Std L"/>
+         <typeface name="Adobe Myungjo Std M"/>
+      </typefaces>
+   </locale>
+</localeSet></xdp:xdp>

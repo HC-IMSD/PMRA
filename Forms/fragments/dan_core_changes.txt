@@ -1,0 +1,24 @@
+config:
+
+core_version: "2.0"
+
+FormNode:this._validateNode
+
+if(aNodeInstance && aNodeInstance.isPropertySpecified("presence") && aNodeInstance.presence!=="visible"){
+			return aValidationFailure;
+		}
+
+
+UIUtil
+
+in setTooltip
+
+else
+	{
+		//dan added start
+		if(isMandatory(aNode)){
+			plainText += " *";
+		}
+
+
+
