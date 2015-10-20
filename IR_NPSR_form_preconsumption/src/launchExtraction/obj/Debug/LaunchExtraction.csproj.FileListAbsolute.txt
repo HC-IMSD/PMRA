@@ -1,0 +1,5 @@
+c:\users\administrator\documents\visual studio 2012\Projects\LaunchExtraction\LaunchExtraction\bin\Debug\LaunchExtraction.exe.config
+c:\users\administrator\documents\visual studio 2012\Projects\LaunchExtraction\LaunchExtraction\bin\Debug\LaunchExtraction.exe
+c:\users\administrator\documents\visual studio 2012\Projects\LaunchExtraction\LaunchExtraction\bin\Debug\LaunchExtraction.pdb
+c:\users\administrator\documents\visual studio 2012\Projects\LaunchExtraction\LaunchExtraction\obj\Debug\LaunchExtraction.exe
+c:\users\administrator\documents\visual studio 2012\Projects\LaunchExtraction\LaunchExtraction\obj\Debug\LaunchExtraction.pdb
