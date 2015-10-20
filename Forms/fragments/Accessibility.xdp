@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xfa generator="AdobeLiveCycleDesignerES_V10.0.2.20120224.1.869952" APIVersion="3.5.12002.0"?>
+<xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/">
+<template xmlns="http://www.xfa.org/schema/xfa-template/3.0/">
+   <subform name="form1" locale="en_CA" layout="tb">
+      <pageSet>
+         <pageArea>
+            <medium long="279.4mm" short="215.9mm" stock="letter"/>
+            <contentArea h="253.74mm" id="caMain_ID_copy1_copy1_copy1" name="caMainNoPrev" w="203.2mm" x="6.349mm" y="15.08mm">
+               <?templateDesigner expand 1?></contentArea>
+         </pageArea>
+      </pageSet>
+      <subform>
+         <variables>
+            <script contentType="application/x-javascript" name="Accessibility">
+//constants
+var cLog =						script.core.util.Log;
+var cConfigManager=			script.core.util.ConfigurationManager;
+var colourError=			cConfigManager.get("colourError");
+var errorIndicator=			cConfigManager.get("errorInd");
+
+
+
+/*
+* Walks all the nodes and updates any failed nodes with an accessibility indicators
+* @param startNode - the adobe Node to start with
+*
+*
+*/
+
+function updateColorErrorsForAccessibility(startNode){
+
+	walk(startNode, updateErrorIndicator);
+
+}//end fn
+
+
+/*
+* Updates the error inidicator for an adobe field. Updates both the caption and toolTip if they exist
+* Checks for the error color to determine if the field is in error
+*@param - oField- the adobe node to process
+*/
+function updateErrorIndicator(oField){
+	
+	var toolTipString=oField.assist.toolTip.value;
+	var captionString=oField.caption.value.text.value;
+	if(oField.fillColor===colourError){
+		//get tooltip
+		if(toolTipString){
+			if(toolTipString.charAt(toolTipString.length-1)!==errorIndicator){
+				oField.assist.toolTip.value=toolTipString+errorIndicator;
+			}	
+		}
+		if(captionString){
+			if(captionString.charAt(captionString.length-1)!==errorIndicator){
+				oField.caption.value.text.value=captionString+errorIndicator;
+			}
+		}
+		//if no tooltip get caption
+		
+		//check if indicator exists	
+	}else{
+	
+		if(toolTipString){
+			if(toolTipString.charAt(toolTipString.length-1)===errorIndicator){
+				oField.assist.toolTip.value=toolTipString.substr(0,toolTipString.length-1);
+			}
+		}
+		if(captionString){
+			if(captionString.charAt(captionString.length-1)===errorIndicator){
+				oField.caption.value.text.value=captionString.substr(0,captionString.length-1);
+			}
+		
+		}
+	}	
+}//end fn
+
+
+/*
+*Walks the tree of form nodes and calls in the passed in function
+*@param oNode - an adobe Node to process
+*@param func- a pointer to the function to call
+*@param param1- an optional parameter to pass to the function
+*
+*/
+function walk(oNode, func, param1)
+{	
+	var count = 0;	
+	if(oNode.isPropertySpecified("presence") &amp;&amp; oNode.presence!=="visible") return count;
+	
+	if ((oNode.className == "exclGroup" 
+	|| oNode.className == "subform"  
+	|| oNode.className == "subformSet" 
+	|| oNode.className == "area"))
+	{
+		
+		for (var i = 0; i &lt; oNode.nodes.length; i++)
+		{
+			var oChildNode = oNode.nodes.item(i);
+			count += walk(oChildNode, func, param1);
+		}
+	}
+	else if (oNode.className == "field")
+	{
+		if(func(oNode, param1))
+		{
+			count++;
+		}
+	}
+	
+	return count;
+}
+
+
+
+
+
+               <?templateDesigner isFragment yes?>
+               <?templateDesigner fragmentTitle Accessibility?></script>
+         </variables>
+      </subform>
+   </subform>
+</template>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.2-c001 63.139439, 2011/06/07-10:39:26        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description xmlns:lcd="http://ns.adobe.com/livecycle/designer/" xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:about="">
+         <lcd:fragmentCatalog>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <dc:title>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default">Accessibility</rdf:li>
+                     </rdf:Alt>
+                  </dc:title>
+                  <dc:description>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default"/>
+                     </rdf:Alt>
+                  </dc:description>
+                  <dc:identifier>$template.form1.#subform.#variables.Accessibility</dc:identifier>
+                  <lcd:fragmentRole>ScriptObject</lcd:fragmentRole>
+               </rdf:li>
+            </rdf:Seq>
+         </lcd:fragmentCatalog>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta></xdp:xdp>

@@ -1,0 +1,1336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xfa generator="ADEPDocumentServices–Designer_V10.0.0.0.20110715.1.847530" APIVersion="3.5.11195.0"?>
+<xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2013-03-15T18:44:29Z" uuid="005b4b25-30a3-4a06-8dfa-28b71fe442a0">
+<template xmlns="http://www.xfa.org/schema/xfa-template/3.0/">
+   <?formServer defaultPDFRenderFormat acrobat9.1static?>
+   <subform name="form1" locale="en_CA" layout="tb">
+      <pageSet>
+         <pageArea>
+            <medium long="279.4mm" short="215.9mm" stock="letter"/>
+            <contentArea h="253.74mm" id="caMain_ID" name="caMain" w="203.2mm" x="6.35mm" y="15.08mm">
+               <?templateDesigner expand 1?></contentArea>
+         </pageArea>
+      </pageSet>
+      <subform id="eindexMeta_ID" layout="lr-tb" name="sfEindexMeta" w="202.946mm">
+         <occur max="-1"/>
+         <margin bottomInset="0.9906mm" leftInset="0.508mm" rightInset="0.508mm" topInset="0.9906mm"/>
+         <draw name="lblFileAttachmentID" w="202.123mm" h="6.985mm">
+            <ui>
+               <textEdit/>
+            </ui>
+            <value>
+               <text>File Attachment</text>
+            </value>
+            <font size="8pt" typeface="Arial" weight="bold"/>
+            <margin topInset="0.5mm" bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm"/>
+            <para vAlign="middle"/>
+            <assist role="H4"/>
+            <border>
+               <edge presence="hidden"/>
+               <fill>
+                  <color value="192,192,192"/>
+               </fill>
+            </border>
+            <?renderCache.bounds 570113 16966 0 0 1417 1417 0 0?>
+            <?renderCache.textRun 15 File Attachment 0 1417 12216 0 0 0 "Arial" 1 0 8000 ISO-8859-1?></draw>
+         <field h="6mm" name="btnAdd" w="43.815mm">
+            <ui>
+               <button highlight="inverted"/>
+            </ui>
+            <font typeface="Myriad Pro"/>
+            <caption>
+               <value>
+                  <text>Add File Attachment</text>
+               </value>
+               <para hAlign="center" marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <font baselineShift="0pt" size="8pt" typeface="Arial" weight="bold"/>
+            </caption>
+            <border hand="right">
+               <?templateDesigner StyleID apbx2?>
+               <edge stroke="raised"/>
+               <fill>
+                  <color value="212,208,200"/>
+               </fill>
+            </border>
+            <bind match="none"/>
+            <assist>
+               <speak disable="1"/>
+            </assist>
+            <event activity="click" name="event__click">
+               <script contentType="application/x-javascript">
+var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cEnvironmentHandler = script.ir.control.EnvironmentReportHandler
+var cSystem = script.core.System;
+
+try
+{
+		// set up event object
+		var actionName = cEnvironmentHandler.ADD_UPDATE_META_ACTION;
+		var anActionEvent = cActionEvent.createInstance(actionName, this); //need the root subform
+		// deploy event to controller
+		cEnvironmentHandler.actionPerformed(anActionEvent);
+}
+catch(exception)
+{
+	cLog.warn("Problem with add File Update Attachment::click", exception);
+}
+</script>
+            </event>
+         </field>
+         <field h="43.6598mm" name="lstDACO_ID" w="201.4194mm">
+            <ui>
+               <choiceList open="always">
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge stroke="lowered"/>
+                  </border>
+                  <margin/>
+               </choiceList>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="0mm" rightInset="1mm" topInset="1mm"/>
+            <caption placement="top" reserve="4.23mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial" underline="1"/>
+               <para marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <text>Data Numbering Code- Identification numérique des données</text>
+               </value>
+            </caption>
+            <event activity="initialize" name="event__initialize">
+               <script contentType="application/x-javascript">/*var temp=this.rawValue;
+F7control.popDaco(this);
+this.rawValue=temp;
+*/
+</script>
+            </event>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+               <corner/>
+            </border>
+            <para vAlign="middle"/>
+            <bind match="none"/>
+            <validate nullTest="error"/>
+         </field>
+         <draw h="5.443mm" name="lblDummy" w="157.795mm">
+            <ui>
+               <textEdit>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+            <assist>
+               <speak disable="1"/>
+            </assist>
+            <?renderCache.bounds 444459 12595 0 0 1417 1417 0 0?></draw>
+         <field name="ddlCROSS_REFERENCE" w="62mm" h="9mm" presence="hidden">
+            <ui>
+               <choiceList>
+                  <border>
+                     <edge/>
+                  </border>
+                  <margin/>
+               </choiceList>
+            </ui>
+            <font size="12pt" typeface="Myriad Pro Light"/>
+            <margin topInset="1mm" bottomInset="1mm" leftInset="1mm" rightInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="25mm">
+               <font typeface="Myriad Pro Light"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Drop-down List</text>
+               </value>
+            </caption>
+            <bind match="dataRef" ref="PDF_RESERVED_004"/>
+         </field>
+         <field h="11.37mm" name="txtAPP_NO" presence="hidden" w="95.51mm">
+            <ui>
+               <textEdit>
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge stroke="lowered"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="5.08mm" rightInset="1mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="45.51mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <exData contentType="text/html" maxLength="0">
+                     <body xmlns="http://www.w3.org/1999/xhtml" xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/"><p><span style="xfa-spacerun:yes"> </span>Application No.</p><p><span style="xfa-spacerun:yes"> </span>No de la demande d'homologation</p></body>
+                  </exData>
+               </value>
+            </caption>
+            <assist>
+               <speak disable="1"/>
+            </assist>
+            <value>
+               <text maxChars="10"/>
+            </value>
+            <validate scriptTest="warning"/>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+            </border>
+            <traversal>
+               <traverse ref="txtPMRA_DOC_NO[0]"/>
+            </traversal>
+            <event activity="exit" name="event__exit">
+               <script contentType="application/x-javascript">//General.checkSubNoFormat(this);
+</script>
+            </event>
+            <event activity="initialize" name="event__initialize">
+               <script contentType="application/x-javascript">//this.execEvent("exit");
+</script>
+            </event>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">General.checkIfSubNum(xfa.event);
+</script>
+            </event>
+            <bind match="dataRef" ref="PDF_RESERVED_005"/>
+         </field>
+         <field h="11.37mm" name="txtPMRA_DOC_NO" presence="hidden" w="106.382mm">
+            <ui>
+               <textEdit>
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge stroke="lowered"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="0mm" rightInset="0mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="38.36mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para hAlign="right" marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <exData contentType="text/html" maxLength="0">
+                     <body xmlns="http://www.w3.org/1999/xhtml" xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/"><p>PMRA Document No.</p><p>No du document de l'ARLA</p></body>
+                  </exData>
+               </value>
+            </caption>
+            <assist>
+               <speak disable="1"/>
+            </assist>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+               <corner/>
+            </border>
+            <value>
+               <text maxChars="40"/>
+            </value>
+            <traversal>
+               <traverse ref="txtDM_REPORT_NO[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_006"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">//General.removeNewLine(xfa.event);
+</script>
+            </event>
+         </field>
+         <field name="ddlCBI_APPL_IND" w="74.989mm" h="6.985mm">
+            <ui>
+               <choiceList>
+                  <border>
+                     <edge/>
+                  </border>
+                  <margin/>
+               </choiceList>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin topInset="1mm" bottomInset="1mm" leftInset="1mm" rightInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="51.226mm">
+               <font size="8pt" typeface="Arial" underline="1" baselineShift="0pt"/>
+               <para vAlign="middle" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" marginLeft="0pt" marginRight="0pt"/>
+               <value>
+                  <text>Confidential Business Information ?</text>
+               </value>
+            </caption>
+            <bind match="dataRef" ref="PDF_RESERVED_003"/>
+            <validate nullTest="error"/>
+         </field>
+         <draw h="4.96mm" name="lblDummy" w="122.903mm">
+            <ui>
+               <textEdit>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+            <assist>
+               <speak disable="1"/>
+            </assist>
+            <?renderCache.bounds 345552 11226 0 0 1417 1417 0 0?></draw>
+         <field name="txtDM_REPORT_NO" w="95.51mm" minH="7.325mm">
+            <ui>
+               <textEdit multiLine="1">
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="34.93mm">
+               <para vAlign="middle"/>
+               <value>
+                  <text>Company Report No.</text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+            </border>
+            <value>
+               <text maxChars="256"/>
+            </value>
+            <traversal>
+               <traverse ref="txtDM_LAB_NAME[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_007"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">
+var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cMainHandler = script.ir.control.FormHandler;
+
+try
+{
+	// set up event object
+	var actionName = cMainHandler.REMOVE_RESERVED_CHARS;
+	var anActionEvent = cActionEvent.createInstance(actionName, this, xfa.event);
+	
+	// deploy event to controller
+	cMainHandler.actionPerformed(anActionEvent);
+}
+catch(exception)
+{
+	cLog.warn("Problem with Company Report No::change", exception);
+}
+</script>
+            </event>
+         </field>
+         <field name="txtDM_LAB_NAME" w="106.382mm" minH="6.985mm">
+            <ui>
+               <textEdit multiLine="1">
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="12.7mm" rightInset="0mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="25.66mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para hAlign="right" marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <text>Lab Name</text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+            </border>
+            <value>
+               <text maxChars="256"/>
+            </value>
+            <traversal>
+               <traverse ref="txtDM_TITLE[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_008"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">//General.removeNewLine(xfa.event);
+</script>
+            </event>
+         </field>
+         <field name="txtDM_TITLE" w="95.5101mm" minH="6.985mm">
+            <ui>
+               <textEdit multiLine="1">
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="0.9906mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="7.41mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <text>Title</text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+               <corner/>
+            </border>
+            <value>
+               <text maxChars="2000"/>
+            </value>
+            <traversal>
+               <traverse ref="txtDM_LAB_CITY[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_009"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">
+var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cMainHandler = script.ir.control.FormHandler;
+
+try
+{
+	// set up event object
+	var actionName = cMainHandler.REMOVE_RESERVED_CHARS;
+	var anActionEvent = cActionEvent.createInstance(actionName, this, xfa.event);
+	
+	// deploy event to controller
+	cMainHandler.actionPerformed(anActionEvent);
+}
+catch(exception)
+{
+	cLog.warn("Problem with environment attachment update Title::change", exception);
+}
+</script>
+            </event>
+         </field>
+         <field name="txtDM_LAB_CITY" w="105.592mm" minH="6.985mm">
+            <ui>
+               <textEdit>
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="12.7mm" rightInset="0mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="25.4mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para hAlign="right" marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <text>Lab City</text>
+               </value>
+            </caption>
+            <value>
+               <text maxChars="256"/>
+            </value>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+            </border>
+            <traversal>
+               <traverse ref="txtDM_AUTHOR[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_010"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">
+var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cMainHandler = script.ir.control.FormHandler;
+
+try
+{
+	// set up event object
+	var actionName = cMainHandler.REMOVE_RESERVED_CHARS;
+	var anActionEvent = cActionEvent.createInstance(actionName, this, xfa.event);
+	
+	// deploy event to controller
+	cMainHandler.actionPerformed(anActionEvent);
+}
+catch(exception)
+{
+	cLog.warn("Problem with lab city Env. update::change", exception);
+}
+</script>
+            </event>
+         </field>
+         <field name="txtDM_AUTHOR" w="94.99mm" minH="6.985mm">
+            <ui>
+               <textEdit multiLine="1">
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="13.23mm">
+               <para vAlign="middle"/>
+               <value>
+                  <text>Author(s)</text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+               <corner/>
+            </border>
+            <value>
+               <text maxChars="2000"/>
+            </value>
+            <traversal>
+               <traverse ref="ddlDM_LAB_COUNTRY[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_011"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">//General.removeNewLine(xfa.event);
+
+var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cMainHandler = script.ir.control.FormHandler;
+
+try
+{
+	// set up event object
+	var actionName = cMainHandler.REMOVE_RESERVED_CHARS;
+	var anActionEvent = cActionEvent.createInstance(actionName, this, xfa.event);
+	
+	// deploy event to controller
+	cMainHandler.actionPerformed(anActionEvent);
+}
+catch(exception)
+{
+	cLog.warn("Problem with ::change", exception);
+}
+</script>
+            </event>
+         </field>
+         <field h="6.985mm" name="ddlDM_LAB_COUNTRY" w="106.652mm">
+            <ui>
+               <choiceList>
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge stroke="lowered"/>
+                  </border>
+                  <margin/>
+               </choiceList>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="12.7mm" rightInset="1mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="26.19mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para hAlign="right" marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <text>Lab Country</text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+            </border>
+            <event activity="initialize" name="event__initialize">
+               <script contentType="application/x-javascript">//F7control.popCountry(this);
+</script>
+            </event>
+            <traversal>
+               <traverse ref="dteDM_REPORT_DATE[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_012"/>
+         </field>
+         <field h="6.985mm" name="dteDM_REPORT_DATE" w="54.24mm">
+            <ui>
+               <dateTimeEdit>
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </dateTimeEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="0.9906mm" leftInset="1mm" rightInset="1mm" topInset="0.9906mm"/>
+            <para hAlign="center" vAlign="middle"/>
+            <value>
+               <date/>
+            </value>
+            <caption reserve="21.43mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <text>Report Date</text>
+               </value>
+            </caption>
+            <format>
+               <picture>YYYY-MM-DD</picture>
+            </format>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+            </border>
+            <validate formatTest="error" scriptTest="warning">
+               <message>
+                  <text name="formatTest">Please use the format YYYY-MM-DD - Utiliser le format AAAA-MM-JJ</text>
+               </message>
+               <picture>YYYY-MM-DD</picture>
+            </validate>
+            <event activity="initialize" name="event__initialize">
+               <script contentType="application/x-javascript">//this.execEvent("exit");
+</script>
+            </event>
+            <event activity="exit" name="event__exit">
+               <script contentType="application/x-javascript">//General.checkDigitFormat(this.validate.picture.value,this);
+</script>
+            </event>
+            <traversal>
+               <traverse ref="txtDM_LAB_REPORT_NUMBER[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_013"/>
+         </field>
+         <field name="txtDM_LAB_REPORT_NUMBER" w="147.662mm" minH="6.985mm">
+            <ui>
+               <textEdit multiLine="1">
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="43.18mm" rightInset="1mm" topInset="1mm"/>
+            <para vAlign="middle" marginRight="1.44pt"/>
+            <caption reserve="36.51mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para hAlign="right" marginLeft="0pt" marginRight="1.44pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <text>Lab Report Number</text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+               <corner/>
+            </border>
+            <value>
+               <text maxChars="256"/>
+            </value>
+            <traversal>
+               <traverse ref="txtDM_NO_PAGES[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_014"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">
+var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cMainHandler = script.ir.control.FormHandler;
+
+try
+{
+	// set up event object
+	var actionName = cMainHandler.REMOVE_RESERVED_CHARS;
+	var anActionEvent = cActionEvent.createInstance(actionName, this, xfa.event);
+	
+	// deploy event to controller
+	cMainHandler.actionPerformed(anActionEvent);
+}
+catch(exception)
+{
+	cLog.warn("Problem with env update lab report number::change", exception);
+}
+</script>
+            </event>
+         </field>
+         <field name="txtDM_NO_PAGES" y="0mm" x="0mm" w="94.19mm" h="6.985mm">
+            <ui>
+               <textEdit>
+                  <border>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="17.4477mm">
+               <para vAlign="middle"/>
+               <value>
+                  <text>No. of Pages</text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+               <corner/>
+            </border>
+            <event activity="initialize" name="event__initialize">
+               <script contentType="application/x-javascript">//this.execEvent("exit");
+</script>
+            </event>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">//General.checkIfInteger(xfa.event)
+</script>
+            </event>
+            <traversal>
+               <traverse ref="ddlDM_GLP_GEP[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_015"/>
+            <value>
+               <text maxChars="10"/>
+            </value>
+         </field>
+         <field h="6.985mm" name="ddlDM_GLP_GEP" w="107.702mm">
+            <ui>
+               <choiceList>
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge/>
+                  </border>
+                  <margin/>
+               </choiceList>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="5.08mm" rightInset="0.9906mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="34.906mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para hAlign="right" marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt"/>
+               <value>
+                  <text>Study carried out under</text>
+               </value>
+            </caption>
+            <items/>
+            <items presence="hidden" save="1"/>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+            </border>
+            <event activity="initialize" name="event__initialize">
+               <script contentType="application/x-javascript">//F7control.popLab(this);
+</script>
+            </event>
+            <validate nullTest="warning"/>
+            <traversal>
+               <traverse ref="txtDM_VOL_NO[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_016"/>
+         </field>
+         <field name="txtDM_VOL_NO" w="94.19mm" minH="6.985mm">
+            <ui>
+               <textEdit multiLine="1">
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="25mm">
+               <para vAlign="middle"/>
+               <value>
+                  <text>Volume No(s)</text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+            </border>
+            <value>
+               <text maxChars="256"/>
+            </value>
+            <traversal>
+               <traverse ref="txtDM_EPA_MRID_NO[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_017"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">
+var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cMainHandler = script.ir.control.FormHandler;
+
+try
+{
+	// set up event object
+	var actionName = cMainHandler.REMOVE_RESERVED_CHARS;
+	var anActionEvent = cActionEvent.createInstance(actionName, this, xfa.event);
+	
+	// deploy event to controller
+	cMainHandler.actionPerformed(anActionEvent);
+}
+catch(exception)
+{
+	cLog.warn("Problem with env. update Volume::change", exception);
+}
+</script>
+            </event>
+         </field>
+         <field name="ddlDM_PUBLISHED" w="107.25mm" h="6.985mm">
+            <ui>
+               <choiceList>
+                  <border>
+                     <edge/>
+                  </border>
+                  <margin/>
+               </choiceList>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin topInset="1mm" bottomInset="1mm" leftInset="1mm" rightInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="38.8424mm">
+               <font size="8pt" typeface="Arial" baselineShift="0pt"/>
+               <para vAlign="middle" hAlign="right" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" marginLeft="0pt" marginRight="0pt"/>
+               <value>
+                  <text>Published</text>
+               </value>
+            </caption>
+            <bind match="dataRef" ref="PDF_RESERVED_018"/>
+         </field>
+         <field name="txtDM_EPA_MRID_NO" w="94.1899mm" minH="6.985mm">
+            <ui>
+               <textEdit multiLine="1">
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+            <para vAlign="middle"/>
+            <caption reserve="38.36mm">
+               <para vAlign="middle"/>
+               <value>
+                  <text>EPA MRID No.</text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+               <corner/>
+            </border>
+            <value>
+               <text maxChars="256"/>
+            </value>
+            <traversal>
+               <traverse ref="txtDOCUMENT_GROUP[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_019"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">//General.removeNewLine(xfa.event);
+</script>
+            </event>
+         </field>
+         <field name="txtDOCUMENT_GROUP" w="107.442mm" minH="6.985mm">
+            <ui>
+               <textEdit multiLine="1">
+                  <border>
+                     <?templateDesigner StyleID aped3?>
+                     <edge presence="hidden"/>
+                     <edge presence="hidden"/>
+                     <edge/>
+                     <edge presence="hidden"/>
+                  </border>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font size="8pt" typeface="Arial"/>
+            <margin bottomInset="1mm" leftInset="12.7mm" rightInset="1mm" topInset="1mm"/>
+            <para vAlign="middle" marginRight="1.44pt"/>
+            <caption reserve="26.99mm">
+               <font baselineShift="0pt" size="8pt" typeface="Arial"/>
+               <para hAlign="right" marginLeft="0pt" marginRight="1.44pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+               <value>
+                  <text>Document Group         </text>
+               </value>
+            </caption>
+            <border>
+               <edge presence="hidden"/>
+               <fill/>
+               <corner/>
+            </border>
+            <value>
+               <text maxChars="40"/>
+            </value>
+            <traversal>
+               <traverse ref="sffileAttach[0]"/>
+            </traversal>
+            <bind match="dataRef" ref="PDF_RESERVED_020"/>
+            <event activity="change" name="event__change">
+               <script contentType="application/x-javascript">var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cMainHandler = script.ir.control.FormHandler;
+
+try
+{
+	// set up event object
+	var actionName = cMainHandler.REMOVE_RESERVED_CHARS;
+	var anActionEvent = cActionEvent.createInstance(actionName, this, xfa.event);
+	
+	// deploy event to controller
+	cMainHandler.actionPerformed(anActionEvent);
+}
+catch(exception)
+{
+	cLog.warn("Problem with env. update Document Group::change", exception);
+}
+</script>
+            </event>
+         </field>
+         <border>
+            <edge thickness="0.1778mm"/>
+            <corner thickness="0.1778mm"/>
+         </border>
+         <subform id="fileAttach_ID" name="sffileAttach" w="202.162mm" layout="lr-tb">
+            <field name="btnBrowse" w="27.45mm" h="5.08mm">
+               <ui>
+                  <button highlight="inverted"/>
+               </ui>
+               <font typeface="Myriad Pro"/>
+               <caption>
+                  <value>
+                     <text>Browse- Parcourir</text>
+                  </value>
+                  <para hAlign="center" vAlign="middle"/>
+                  <font size="8pt" typeface="Arial"/>
+               </caption>
+               <border hand="right">
+                  <?templateDesigner StyleID apbx2?>
+                  <edge stroke="raised"/>
+                  <fill>
+                     <color value="212,208,200"/>
+                  </fill>
+               </border>
+               <bind match="none"/>
+               <assist>
+                  <speak disable="1"/>
+               </assist>
+               <event activity="click" name="event__click">
+                  <script contentType="application/x-javascript">var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cFileAttachHandler = script.ir.control.FileAttachmentHandler;
+var cSystem = script.core.System;
+var cConfigManager=			script.core.util.ConfigurationManager;
+
+try
+{
+	
+	// set up event object
+	var actionName=		cFileAttachHandler.FILE_BROWSE_ACTION;
+	var base_id=		cConfigManager.get("ENVIRON_UPDATE_BASE");
+	var anActionEvent = cActionEvent.createInstance(actionName, this.parent.parent,base_id);
+	// deploy event to controller
+	cFileAttachHandler.actionPerformed(anActionEvent);
+		
+}
+catch(exception)
+{
+	cLog.warn("Problem with Environment update add Attachment::click", exception);
+}
+</script>
+               </event>
+            </field>
+            <field access="readOnly" name="txtDM_EFILE_NAME" w="81.58mm" minH="13.359mm">
+               <ui>
+                  <textEdit multiLine="1">
+                     <border>
+                        <?templateDesigner StyleID aped3?>
+                        <edge presence="hidden"/>
+                        <edge presence="hidden"/>
+                        <edge/>
+                        <edge presence="hidden"/>
+                     </border>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="8pt" typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption reserve="22.5611mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text>eFile Name</text>
+                  </value>
+               </caption>
+               <border>
+                  <edge presence="hidden"/>
+                  <fill/>
+               </border>
+               <event activity="initialize" name="event__initialize">
+                  <script contentType="application/x-javascript">//this.border.fill.color.value=GlobalVar.pmraGrey;
+//this.access="readOnly";
+</script>
+               </event>
+               <value>
+                  <text maxChars="256"/>
+               </value>
+               <traversal>
+                  <traverse ref="txtDM_EFILE_LOCATION[0]"/>
+               </traversal>
+               <bind match="dataRef" ref="PDF_RESERVED_021"/>
+            </field>
+            <field access="readOnly" name="txtDM_EFILE_LOCATION" w="55.562mm" minH="13.428mm">
+               <ui>
+                  <textEdit multiLine="1">
+                     <border>
+                        <?templateDesigner StyleID aped3?>
+                        <edge presence="hidden"/>
+                        <edge presence="hidden"/>
+                        <edge/>
+                        <edge presence="hidden"/>
+                     </border>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="8pt" typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption reserve="19.489mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text>Attachment ID</text>
+                  </value>
+               </caption>
+               <border>
+                  <edge presence="hidden"/>
+                  <fill/>
+               </border>
+               <event activity="initialize" name="event__initialize">
+                  <script contentType="application/x-javascript">//this.border.fill.color.value=GlobalVar.pmraGrey;
+//this.access="readOnly";
+</script>
+               </event>
+               <value>
+                  <text maxChars="256"/>
+               </value>
+               <traversal>
+                  <traverse ref="btnBrowse[0]"/>
+               </traversal>
+               <bind match="dataRef" ref="PDF_RESERVED_022"/>
+            </field>
+            <field minH="4.9583mm" name="btnClear" w="27.45mm">
+               <ui>
+                  <button highlight="inverted"/>
+               </ui>
+               <font typeface="Myriad Pro"/>
+               <caption>
+                  <value>
+                     <text>Remove - Effacer</text>
+                  </value>
+                  <para hAlign="center" vAlign="middle"/>
+                  <font size="8pt" typeface="Arial"/>
+               </caption>
+               <border hand="right">
+                  <?templateDesigner StyleID apbx2?>
+                  <edge stroke="raised"/>
+                  <fill>
+                     <color value="212,208,200"/>
+                  </fill>
+               </border>
+               <bind match="none"/>
+               <assist>
+                  <speak disable="1"/>
+               </assist>
+               <event activity="click" name="event__click">
+                  <script contentType="application/x-javascript">var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cFileAttachHandler = script.ir.control.FileAttachmentHandler;
+var cSystem = script.core.System;
+var cConfigManager=			script.core.util.ConfigurationManager;
+
+try
+{
+	
+	// set up event object
+	var actionName=		cFileAttachHandler.FILE_REMOVE_ACTION;
+	var base_id=		cConfigManager.get("ENVIRON_UPDATE_BASE");
+	var anActionEvent = cActionEvent.createInstance(actionName, this.parent.parent,base_id);
+	// deploy event to controller
+	cFileAttachHandler.actionPerformed(anActionEvent);
+		
+}
+catch(exception)
+{
+	cLog.warn("Problem with Environment update remove Attachment::click", exception);
+}
+</script>
+               </event>
+            </field>
+            <margin bottomInset="0.9906mm" topInset="0.9906mm"/>
+            <bind match="none"/>
+            <traversal>
+               <traverse operation="first" ref="txtDM_EFILE_NAME[0]"/>
+            </traversal>
+            <keep intact="contentArea"/>
+            <?templateDesigner expand 0?></subform>
+         <field h="6mm" name="btnRemove" w="53.194mm">
+            <ui>
+               <button highlight="inverted"/>
+            </ui>
+            <font typeface="Myriad Pro"/>
+            <caption>
+               <value>
+                  <text>Remove File Attachment</text>
+               </value>
+               <para hAlign="center" vAlign="middle"/>
+               <font size="8pt" typeface="Arial" weight="bold"/>
+            </caption>
+            <border hand="right">
+               <?templateDesigner StyleID apbx2?>
+               <edge stroke="raised"/>
+               <fill>
+                  <color value="212,208,200"/>
+               </fill>
+            </border>
+            <bind match="none"/>
+            <assist>
+               <speak disable="1"/>
+            </assist>
+            <event activity="click" name="event__click">
+               <script contentType="application/x-javascript">
+var cActionEvent = script.core.event.ActionEvent;
+var cLog = script.core.util.Log;
+var cEnvironmentHandler = script.ir.control.EnvironmentReportHandler;
+var cSystem = script.core.System;
+
+try
+{
+		// set up event object
+		var actionName = cEnvironmentHandler.REMOVE_UPDATE_META_ACTION;
+		var anActionEvent = cActionEvent.createInstance(actionName, this, this.parent); //need the root subform
+		// deploy event to controller
+		cEnvironmentHandler.actionPerformed(anActionEvent);
+}
+catch(exception)
+{
+	cLog.warn("Problem with Remove File Update Attachment::click", exception);
+}
+</script>
+            </event>
+         </field>
+         <bind match="dataRef" ref="IR_E_PDF1_RESERVED[*]"/>
+         <traversal>
+            <traverse operation="first" ref="btnAdd[0]"/>
+         </traversal>
+         <?templateDesigner expand 1?>
+         <?templateDesigner isFragment yes?>
+         <?templateDesigner fragmentTitle sfEindexMeta?>
+         <?templateDesigner fragmentDescription For eIndex metadata?></subform>
+      <?renderCache.subset "Arial" 0 0 ISO-8859-1 4 184 47 0003000A000B000C001000110022002400250026002700280029002A002C002F0030003100330035003600370039004400450046004700480049004A004B004C004F0050005100520053005400550056005700580059005A005C0070 '()-.?ABCDEFGILMNPRSTVabcdefghilmnopqrstuvwyé?>
+      <?renderCache.subset "Arial" 1 0 ISO-8859-1 4 64 16 00030024002900350044004600470048004B004C004F00500051005200570059 AFRacdehilmnotv?>
+      <?renderCache.subset "Myriad Pro Light" 0 0 ISO-8859-1 4 52 13 0001000E0025002D0045004A004F005000510053005400550058 -DLdinoprstw?>
+   </subform>
+   <?templateDesigner FormTargetVersion 30?>
+   <?templateDesigner Zoom 104?>
+   <?templateDesigner Rulers horizontal:1, vertical:1, guidelines:1, crosshairs:0?></template>
+<config xmlns="http://www.xfa.org/schema/xci/3.0/">
+   <agent name="designer">
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+      </pdf>
+   </agent>
+   <present>
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+         <version>1.7</version>
+         <adobeExtensionLevel>5</adobeExtensionLevel>
+      </pdf>
+      <xdp>
+         <packets>*</packets>
+      </xdp>
+   </present>
+</config>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.2-c001 63.139439, 2011/06/07-10:39:26        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/" rdf:about="">
+         <xmp:MetadataDate>2013-03-15T18:44:29Z</xmp:MetadataDate>
+         <xmp:CreatorTool>ADEP Document Services – Designer 10.0</xmp:CreatorTool>
+      </rdf:Description>
+      <rdf:Description xmlns:pdf="http://ns.adobe.com/pdf/1.3/" rdf:about="">
+         <pdf:Producer>ADEP Document Services – Designer 10.0</pdf:Producer>
+      </rdf:Description>
+      <rdf:Description xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" rdf:about="">
+         <xmpMM:DocumentID>uuid:005b4b25-30a3-4a06-8dfa-28b71fe442a0</xmpMM:DocumentID>
+      </rdf:Description>
+      <rdf:Description xmlns:lcd="http://ns.adobe.com/livecycle/designer/" xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:about="">
+         <lcd:fragmentCatalog>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <dc:title>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default">sfEindexMeta</rdf:li>
+                     </rdf:Alt>
+                  </dc:title>
+                  <dc:description>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default">For eIndex metadata</rdf:li>
+                     </rdf:Alt>
+                  </dc:description>
+                  <dc:identifier>$template.form1.sfEindexMeta</dc:identifier>
+                  <lcd:fragmentRole>Subform</lcd:fragmentRole>
+               </rdf:li>
+            </rdf:Seq>
+         </lcd:fragmentCatalog>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+<localeSet xmlns="http://www.xfa.org/schema/xfa-locale-set/2.7/">
+   <locale name="en_CA" desc="English (Canada)">
+      <calendarSymbols name="gregorian">
+         <monthNames>
+            <month>January</month>
+            <month>February</month>
+            <month>March</month>
+            <month>April</month>
+            <month>May</month>
+            <month>June</month>
+            <month>July</month>
+            <month>August</month>
+            <month>September</month>
+            <month>October</month>
+            <month>November</month>
+            <month>December</month>
+         </monthNames>
+         <monthNames abbr="1">
+            <month>Jan</month>
+            <month>Feb</month>
+            <month>Mar</month>
+            <month>Apr</month>
+            <month>May</month>
+            <month>Jun</month>
+            <month>Jul</month>
+            <month>Aug</month>
+            <month>Sep</month>
+            <month>Oct</month>
+            <month>Nov</month>
+            <month>Dec</month>
+         </monthNames>
+         <dayNames>
+            <day>Sunday</day>
+            <day>Monday</day>
+            <day>Tuesday</day>
+            <day>Wednesday</day>
+            <day>Thursday</day>
+            <day>Friday</day>
+            <day>Saturday</day>
+         </dayNames>
+         <dayNames abbr="1">
+            <day>Sun</day>
+            <day>Mon</day>
+            <day>Tue</day>
+            <day>Wed</day>
+            <day>Thu</day>
+            <day>Fri</day>
+            <day>Sat</day>
+         </dayNames>
+         <meridiemNames>
+            <meridiem>AM</meridiem>
+            <meridiem>PM</meridiem>
+         </meridiemNames>
+         <eraNames>
+            <era>BC</era>
+            <era>AD</era>
+         </eraNames>
+      </calendarSymbols>
+      <datePatterns>
+         <datePattern name="full">EEEE, MMMM D, YYYY</datePattern>
+         <datePattern name="long">MMMM D, YYYY</datePattern>
+         <datePattern name="med">D-MMM-YY</datePattern>
+         <datePattern name="short">DD/MM/YY</datePattern>
+      </datePatterns>
+      <timePatterns>
+         <timePattern name="full">h:MM:SS A Z</timePattern>
+         <timePattern name="long">h:MM:SS A Z</timePattern>
+         <timePattern name="med">h:MM:SS A</timePattern>
+         <timePattern name="short">h:MM A</timePattern>
+      </timePatterns>
+      <dateTimeSymbols>GyMdkHmsSEDFwWahKzZ</dateTimeSymbols>
+      <numberPatterns>
+         <numberPattern name="numeric">z,zz9.zzz</numberPattern>
+         <numberPattern name="currency">$z,zz9.99</numberPattern>
+         <numberPattern name="percent">z,zz9%</numberPattern>
+      </numberPatterns>
+      <numberSymbols>
+         <numberSymbol name="decimal">.</numberSymbol>
+         <numberSymbol name="grouping">,</numberSymbol>
+         <numberSymbol name="percent">%</numberSymbol>
+         <numberSymbol name="minus">-</numberSymbol>
+         <numberSymbol name="zero">0</numberSymbol>
+      </numberSymbols>
+      <currencySymbols>
+         <currencySymbol name="symbol">$</currencySymbol>
+         <currencySymbol name="isoname">CAD</currencySymbol>
+         <currencySymbol name="decimal">.</currencySymbol>
+      </currencySymbols>
+      <typefaces>
+         <typeface name="Myriad Pro"/>
+         <typeface name="Minion Pro"/>
+         <typeface name="Courier Std"/>
+         <typeface name="Adobe Pi Std"/>
+         <typeface name="Adobe Hebrew"/>
+         <typeface name="Adobe Arabic"/>
+         <typeface name="Adobe Thai"/>
+         <typeface name="Kozuka Gothic Pro-VI M"/>
+         <typeface name="Kozuka Mincho Pro-VI R"/>
+         <typeface name="Adobe Ming Std L"/>
+         <typeface name="Adobe Song Std L"/>
+         <typeface name="Adobe Myungjo Std M"/>
+      </typefaces>
+   </locale>
+</localeSet></xdp:xdp>
