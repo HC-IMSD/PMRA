@@ -1,0 +1,4 @@
+C:\Users\Administrator\Desktop\jre\jre7\bin\java.exe
+C:\Users\Administrator\Desktop\jre\extract.jar
+C:\Users\Administrator\Desktop\jre\dan1
+C:\Users\Administrator\Desktop\jre\npsr.xsd
