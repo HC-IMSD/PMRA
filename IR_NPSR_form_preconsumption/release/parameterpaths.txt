@@ -1,4 +1,4 @@
-C:\Users\Administrator\Desktop\jre\jre7\bin\java.exe
-C:\Users\Administrator\Desktop\jre\extract.jar
-C:\Users\Administrator\Desktop\jre\dan1
-C:\Users\Administrator\Desktop\jre\npsr.xsd
+W:\_NPSR\batch\batchWin7\jre7\bin\java.exe
+W:\_NPSR\batch\batchWin7\
+W:\_NPSR\mydir21\
+W:\_NPSR\batchWin7\npsr.xsd
