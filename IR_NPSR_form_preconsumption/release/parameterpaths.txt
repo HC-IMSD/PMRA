@@ -1,4 +1,4 @@
 W:\_NPSR\batch\batchWin7\jre7\bin\java.exe
 W:\_NPSR\batch\batchWin7\
 W:\_NPSR\mydir21\
-W:\_NPSR\batchWin7\npsr.xsd
+W:\_NPSR\batch\batchWin7\npsr.xsd
